@@ -1,8 +1,8 @@
-import { FunctionComponent } from "react"
+import { FC } from "react"
 
-const Home: FunctionComponent = () => {
+const Home: FC = () => {
     return (
-        <div>enter</div>
+        <div>les projets blabla</div>
     )
 }
 

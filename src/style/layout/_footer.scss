@@ -1,0 +1,97 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $layout-padding;
+    min-width: 300px;
+    border-top: 2px solid #000;
+    position: relative;
+    &__social-list {
+        display: flex;
+        gap: 1rem;
+        &__item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            border: 2px solid #000;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    }
+    &__themes {
+        display: flex;
+        gap: 2rem;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        &__button {
+            input[type=radio] {
+                width: 18px;
+                height: 18px;
+                background: #000;
+                border-radius: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                position: relative;
+                &:checked {
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        display: block;
+                        width: 25px;
+                        height: 25px;
+                        border-radius: 18px;
+                    }
+                }
+                &#primary {
+                    background: blue;
+                    &:checked {
+                        &:after {
+                            border: 2px solid blue;
+                        }
+                    }
+                }
+                &#secondary {
+                    background: red;
+                    &:checked {
+                        &:after {
+                            border: 2px solid red;
+                        }
+                    }
+                }
+                &#tertiary {
+                    background: green;
+                    &:checked {
+                        &:after {
+                            border: 2px solid green;
+                        }
+                    }
+                }
+                &#quaternary {
+                    background: orange;
+                    &:checked {
+                        &:after {
+                            border: 2px solid orange;
+                        }
+                    }
+                }
+                &#quinquennial {
+                    background: pink;
+                    &:checked {
+                        &:after {
+                            border: 2px solid pink;
+                        }
+                    }
+                }
+            }   
+        }
+    }
+}
