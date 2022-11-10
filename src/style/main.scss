@@ -10,12 +10,14 @@
 
 //layout
 @import 'layout/header';
+@import 'layout/main';
 @import 'layout/footer';
 
 //components
 
 //pages
 @import 'pages/home';
+@import 'pages/welcome';
 
 //themes
 @import 'themes/dark';

@@ -1,0 +1,30 @@
+.welcome {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    &__content {
+        padding: 2rem;
+        position: relative;
+        border: 2px solid #000;
+        &__sub {
+            display: flex;
+            align-items: center;
+            border: 2px solid #000;
+            padding: 0.5rem 1rem;
+            position: absolute;
+            top: 0;
+            left: 20px;
+            background: #fff;
+            transform: translateY(-50%);
+            height: 20px;
+        }
+    }
+    &__button {
+        cursor: pointer;
+        padding: 0.5rem 1rem;
+        border: 2px solid #000;
+    }
+}
