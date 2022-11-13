@@ -7,11 +7,12 @@ import Home from './pages/Home';
 import Main from './layout/Main';
 import Header from './layout/Header';
 import Footer from './layout/Footer';
+import { ThemeProvider } from './utils/themeContext';
 
 function App() {
   const location = useLocation();
   return (
-    <div className="app" id="light">
+    <ThemeProvider>
       {location.pathname !== "/welcome" ?
         <Header />
         : null}
@@ -26,7 +27,7 @@ function App() {
       {location.pathname !== "/welcome" ?
         <Footer />
         : null}
-    </div>
+    </ThemeProvider>
   );
 }
 

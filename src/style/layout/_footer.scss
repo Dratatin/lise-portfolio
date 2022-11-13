@@ -31,7 +31,6 @@
             input[type=radio] {
                 width: 18px;
                 height: 18px;
-                background: #000;
                 border-radius: 18px;
                 display: flex;
                 align-items: center;
@@ -52,42 +51,34 @@
                     }
                 }
                 &#primary {
-                    background: blue;
+                    background: map-get($primary, "base1");
                     &:checked {
                         &:after {
-                            border: 2px solid blue;
+                            border: 2px solid map-get($primary, "base1");
                         }
                     }
                 }
                 &#secondary {
-                    background: red;
+                    background: map-get($secondary, "base1");
                     &:checked {
                         &:after {
-                            border: 2px solid red;
+                            border: 2px solid map-get($secondary, "base1");
                         }
                     }
                 }
                 &#tertiary {
-                    background: green;
+                    background: map-get($tertiary, "base1");
                     &:checked {
                         &:after {
-                            border: 2px solid green;
+                            border: 2px solid map-get($tertiary, "base1");
                         }
                     }
                 }
                 &#quaternary {
-                    background: orange;
+                    background: map-get($quaternary, "base1");
                     &:checked {
                         &:after {
-                            border: 2px solid orange;
-                        }
-                    }
-                }
-                &#quinquennial {
-                    background: pink;
-                    &:checked {
-                        &:after {
-                            border: 2px solid pink;
+                            border: 2px solid map-get($quaternary, "base1");
                         }
                     }
                 }

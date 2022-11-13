@@ -1,1 +1,48 @@
-$layout-padding : 3rem;
+//colors
+$primary: (
+    base1:red
+);
+$secondary: (
+    base1: blue
+);
+$tertiary: (
+    base1: green
+);
+$quaternary: (
+    base1: orange
+);
+
+$themes :(
+    primary: (
+        "base1":pink
+    ),
+    secondary: (
+        "base1": blue
+    ),
+    tertiary: (
+        "base1": green
+    ),
+    quaternary: (
+        "base1": orange
+    )
+);
+
+@mixin themed() {
+    @each $theme, $map in $themes {
+      .theme--#{$theme} & {
+        $theme-map: () !global;
+        @each $key, $submap in $map {
+          $value: map-get(map-get($themes, $theme), '#{$key}');
+          $theme-map: map-merge($theme-map, ($key: $value)) !global;
+        }
+        @content;
+        $theme-map: null !global;
+      }
+    }
+  }
+  
+  @function t($key) {
+    @return map-get($theme-map, $key);
+  }
+
+$layout-padding: 3rem;

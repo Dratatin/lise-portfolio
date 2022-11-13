@@ -1,6 +1,14 @@
-import { FC } from "react"
+import { FC, useContext, ChangeEvent } from "react";
+import useTheme from "../utils/themeContext";
+
 
 const Footer: FC = () => {
+    const { state, setTheme } = useTheme();
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setTheme(e.target.value)
+    }
+
     return (
         <footer className="footer">
             <ul className="footer__social-list">
@@ -14,21 +22,18 @@ const Footer: FC = () => {
                 <li className="footer__theme-list__item"><button className="quaternary"></button></li>
                 <li className="footer__theme-list__item"><button className="quinquennial" ></button></li>
             </ul>
-            <div className="footer__themes">
+            <div className="footer__themes" onChange={handleChange}>
                 <label className="footer__themes__button">
-                    <input type="radio" id="primary" name="themes"></input>
+                    <input type="radio" id="primary" name="themes" value="primary" defaultChecked></input>
                 </label>
                 <label className="footer__themes__button">
-                    <input type="radio" id="secondary" name="themes"></input>
+                    <input type="radio" id="secondary" name="themes" value="secondary"></input>
                 </label>
                 <label className="footer__themes__button">
-                    <input type="radio" id="tertiary" name="themes"></input>
+                    <input type="radio" id="tertiary" name="themes" value="tertiary"></input>
                 </label>
                 <label className="footer__themes__button">
-                    <input type="radio" id="quaternary" name="themes"></input>
-                </label>
-                <label className="footer__themes__button">
-                    <input type="radio" id="quinquennial" name="themes"></input>
+                    <input type="radio" id="quaternary" name="themes" value="quaternary"></input>
                 </label>
             </div>
             <span className="footer__mentions">
