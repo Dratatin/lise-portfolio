@@ -17,7 +17,6 @@ function App() {
         <Header />
         : null}
       <Main>
-        <div></div>
         <Routes>
           <Route path='/' element={<Navigate to="/welcome"></Navigate>}></Route>
           <Route path='/welcome' element={<Welcome></Welcome>}></Route>

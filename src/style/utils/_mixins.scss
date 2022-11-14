@@ -1,3 +1,5 @@
+$theme-map: null; // avoid deprecated 
+
 @mixin themify($themes: $themes) {
     @each $theme, $map in $themes {
         &.theme--#{$theme} {
@@ -14,4 +16,8 @@
 
 @function themed($key) {
     @return map-get($theme-map, $key);
+}
+
+@mixin box-shadow {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
 }

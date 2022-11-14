@@ -5,26 +5,43 @@
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    @include themify() {
+        color: themed('main-color')
+    }
     &__content {
-        padding: 2rem;
+        padding: 2rem 1.5rem;
         position: relative;
-        border: 2px solid #000;
+        border-radius: $border-radius;
+        @include themify() {
+            background-color: themed('box-background');
+            color: themed('box-color')
+        }
+        @include box-shadow;
         &__sub {
             display: flex;
+            border-radius: $border-radius;
             align-items: center;
-            border: 2px solid #000;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 0.7rem;
             position: absolute;
             top: 0;
-            left: 20px;
+            left: 50%;
             background: #fff;
-            transform: translateY(-50%);
+            transform: translate(-50%,-50%);
             height: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            @include themify() {
+                background-color: themed('secondary');
+                color: darken(themed('primary'), 15%);
+            }
         }
     }
     &__button {
         cursor: pointer;
-        padding: 0.5rem 1rem;
-        border: 2px solid #000;
+        padding: 0.5rem 1.5rem;
+        border-radius: 3rem;
+        @include themify() {
+            border: 2px solid themed('main-color');
+        }
     }
 }

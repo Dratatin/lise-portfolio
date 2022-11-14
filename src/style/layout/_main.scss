@@ -2,4 +2,8 @@
     padding: $layout-padding;
     flex: 1;
     display: flex;
+    @include themify() {
+        background-color: themed('main-background');
+        color: themed('main-color')
+    }
 }

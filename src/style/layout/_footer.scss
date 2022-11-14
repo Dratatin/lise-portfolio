@@ -1,60 +1,13 @@
 .footer{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: $layout-padding;
-    min-width: 300px;
-    border-top: 2px solid #000;
-    position: relative;
-    &__social-list {
-        display: flex;
-        gap: 1rem;
-        &__item {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 30px;
-            height: 30px;
-            border: 2px solid #000;
-            font-weight: bold;
-            font-size: 18px;
-        }
-    }
-    &__themes {
-        display: flex;
-        gap: 2rem;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        &__button {
-            input[type=radio] {
-                width: 18px;
-                height: 18px;
-                border-radius: 18px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                position: relative;
-                @include themify($themes) {
-                    background-color: themed('bg');  
-                }
-                &:checked {
-                    &:after {
-                        content: "";
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        display: block;
-                        width: 25px;
-                        height: 25px;
-                        border-radius: 18px;
-                        border: 2px solid themed('bg');
-                    }
-                }
-            }   
-        }
+    padding: 1rem;
+    border-top: 1px solid #000;
+    font-size: 14px;
+    @include themify() {
+        background-color: themed('main-background');
+        color: themed('main-color');
+        border-top: 1px solid darken(themed('primary'), 15%);
     }
 }

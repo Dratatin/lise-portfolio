@@ -1,31 +1,42 @@
-//colors
-$primary: (
-    base1:red
-);
-$secondary: (
-    base1: blue
-);
-$tertiary: (
-    base1: green
-);
-$quaternary: (
-    base1: orange
-);
-
 $themes: (
     primary: (
-        bg:red,
+        primary:#4D2EAA,
+        secondary:#F4B940,
+        tertiary:#EC6836,
+        main-background: #4D2EAA,
+        main-color: #fff,
+        box-background: #fff,
+        box-color: #000,
     ),
     secondary: (
-        bg: blue,
+        primary:#4D2EAA,
+        secondary:#C74949,
+        tertiary:#EC6836,
+        main-background: orange,
+        main-color: #fff,
+        box-background: #fff,
+        box-color: #000,
     ),
     tertiary: (
-        bg: green,
+        primary:#4D2EAA,
+        secondary:#E0F3D1,
+        tertiary:#EC6836,
+        main-background: #4D2EAA,
+        main-color: #fff,
+        box-background: #fff,
+        box-color: #000,
     ),
     quaternary: (
-        bg: orange,
+        primary:#303030,
+        secondary:#000,
+        tertiary:#EC6836,
+        main-background: #303030,
+        main-color: #fff,
+        box-background: #fff,
+        box-color: #000,
     )
 );
 
 $theme-map: null; // avoid deprecated 
 $layout-padding: 3rem;
+$border-radius: 0.6rem;
