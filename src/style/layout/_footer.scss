@@ -37,6 +37,9 @@
                 justify-content: center;
                 cursor: pointer;
                 position: relative;
+                @include themify($themes) {
+                    background-color: themed('bg');  
+                }
                 &:checked {
                     &:after {
                         content: "";
@@ -48,38 +51,7 @@
                         width: 25px;
                         height: 25px;
                         border-radius: 18px;
-                    }
-                }
-                &#primary {
-                    background: map-get($primary, "base1");
-                    &:checked {
-                        &:after {
-                            border: 2px solid map-get($primary, "base1");
-                        }
-                    }
-                }
-                &#secondary {
-                    background: map-get($secondary, "base1");
-                    &:checked {
-                        &:after {
-                            border: 2px solid map-get($secondary, "base1");
-                        }
-                    }
-                }
-                &#tertiary {
-                    background: map-get($tertiary, "base1");
-                    &:checked {
-                        &:after {
-                            border: 2px solid map-get($tertiary, "base1");
-                        }
-                    }
-                }
-                &#quaternary {
-                    background: map-get($quaternary, "base1");
-                    &:checked {
-                        &:after {
-                            border: 2px solid map-get($quaternary, "base1");
-                        }
+                        border: 2px solid themed('bg');
                     }
                 }
             }   

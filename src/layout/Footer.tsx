@@ -24,16 +24,16 @@ const Footer: FC = () => {
             </ul>
             <div className="footer__themes" onChange={handleChange}>
                 <label className="footer__themes__button">
-                    <input type="radio" id="primary" name="themes" value="primary" defaultChecked></input>
+                    <input className="theme--primary" type="radio" id="primary" name="themes" value="primary" defaultChecked></input>
                 </label>
                 <label className="footer__themes__button">
-                    <input type="radio" id="secondary" name="themes" value="secondary"></input>
+                    <input className="theme--secondary" type="radio" id="secondary" name="themes" value="secondary"></input>
                 </label>
                 <label className="footer__themes__button">
-                    <input type="radio" id="tertiary" name="themes" value="tertiary"></input>
+                    <input className="theme--tertiary" type="radio" id="tertiary" name="themes" value="tertiary"></input>
                 </label>
                 <label className="footer__themes__button">
-                    <input type="radio" id="quaternary" name="themes" value="quaternary"></input>
+                    <input className="theme--quaternary" type="radio" id="quaternary" name="themes" value="quaternary"></input>
                 </label>
             </div>
             <span className="footer__mentions">

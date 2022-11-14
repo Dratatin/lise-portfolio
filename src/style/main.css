@@ -147,6 +147,18 @@ button, ul, li, a, input[type=radio] {
   cursor: pointer;
   position: relative;
 }
+.footer__themes__button input[type=radio].theme--primary {
+  background-color: red;
+}
+.footer__themes__button input[type=radio].theme--secondary {
+  background-color: blue;
+}
+.footer__themes__button input[type=radio].theme--tertiary {
+  background-color: green;
+}
+.footer__themes__button input[type=radio].theme--quaternary {
+  background-color: orange;
+}
 .footer__themes__button input[type=radio]:checked:after {
   content: "";
   position: absolute;
@@ -160,26 +172,14 @@ button, ul, li, a, input[type=radio] {
   height: 25px;
   border-radius: 18px;
 }
-.footer__themes__button input[type=radio]#primary {
-  background: red;
-}
 .footer__themes__button input[type=radio]#primary:checked:after {
   border: 2px solid red;
-}
-.footer__themes__button input[type=radio]#secondary {
-  background: blue;
 }
 .footer__themes__button input[type=radio]#secondary:checked:after {
   border: 2px solid blue;
 }
-.footer__themes__button input[type=radio]#tertiary {
-  background: green;
-}
 .footer__themes__button input[type=radio]#tertiary:checked:after {
   border: 2px solid green;
-}
-.footer__themes__button input[type=radio]#quaternary {
-  background: orange;
 }
 .footer__themes__button input[type=radio]#quaternary:checked:after {
   border: 2px solid orange;
