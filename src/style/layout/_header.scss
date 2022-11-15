@@ -9,8 +9,7 @@
     }
     &__themes {
         display: flex;
-        justify-content: space-between;
-        flex: 1;
+        gap: 2rem;
         &__button {
             input[type=radio] {
                 width: 18px;
