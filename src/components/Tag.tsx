@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { useState, FC } from "react";
 import useTheme from "../utils/themeContext";
 
 type Props = {
@@ -10,10 +10,10 @@ const Tag: FC<Props> = ({ value, name }) => {
     const { state } = useTheme();
 
     return (
-        <label className={`tag theme--${state.theme}`}>
-            {value}
-            <input type="radio" value={value} id={value} name={name}></input>
-        </label>
+        <div className="tag">
+            <input type="checkbox" value={value} id={value} name={name} className="tag__input"></input>
+            <label htmlFor={value} className={`tag__label theme--${state.theme}`}>{value}</label>
+        </div>
     )
 }
 
