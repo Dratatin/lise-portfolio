@@ -1,0 +1,9 @@
+.tag {
+    padding: 0.5rem;
+    display: flex;
+    border-radius: $border-radius;
+    text-transform: capitalize;
+    @include themify() {
+        border: 1px solid themed('main-color');
+    }
+}

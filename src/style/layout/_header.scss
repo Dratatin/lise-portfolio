@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: $layout-padding;
+    padding: 2rem;
     gap: 2rem;
     @include themify() {
         background-color: themed('main-background');

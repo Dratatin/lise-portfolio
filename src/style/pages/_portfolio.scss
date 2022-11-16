@@ -1,7 +1,15 @@
 .portfolio {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     &__projects {
         display: flex;
         flex-direction: column;
         gap: 2rem;
+    }
+    &__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
     }
 }

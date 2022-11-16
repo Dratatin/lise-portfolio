@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, Fragment } from "react";
 import useTheme from "../utils/themeContext";
 import { Link } from "react-router-dom"
 
@@ -7,15 +7,23 @@ type Props = {
     preview: string,
     subtitle: string,
     date: string,
+    tags: string[],
 }
 
-const Card: FC<Props> = ({ title, preview, subtitle, date }) => {
+const Card: FC<Props> = ({ title, preview, subtitle, date, tags }) => {
     const { state } = useTheme();
 
     return (
         <article className="card">
             <Link to="/" className="card__link">
-                <img className="card__link__img" src={preview}></img>
+                <Fragment>
+                    <img className="card__link__img" src={preview}></img>
+                    <div className="card__link__tags">
+                        {tags.map((tag, index) => (
+                            <span key={`ct-${index}`} className={`card__link__tags__tag theme--${state.theme}`}>{tag}</span>
+                        ))}
+                    </div>
+                </Fragment>
             </Link>
             <div className="card__details">
                 <div className="card__details__wrapper">
