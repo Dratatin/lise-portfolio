@@ -1,0 +1,10 @@
+.navigateBack {
+    cursor: pointer;
+    @include themify() {
+        color: themed("secondary");
+    }
+    &__icon {
+        width: 25px;
+        margin-right: 6px;
+    }
+}

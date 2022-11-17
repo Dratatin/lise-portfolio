@@ -1,6 +1,8 @@
-import { FC, useEffect } from "react";
+import { FC, Fragment } from "react";
+import { useParams, Navigate } from "react-router-dom";
 import datas from "../datas/projects.json";
-import { useParams, useNavigate } from "react-router-dom";
+import NavigateBack from "../components/NavigateBack";
+import Content from "../components/Content";
 
 type ParamsType = {
     id: string
@@ -10,16 +12,16 @@ const Project: FC = () => {
     const params = useParams<ParamsType>();
     const project = datas.find(({ id }) => id === parseInt(params.id!));
 
-    let navigate = useNavigate();
-
-    useEffect(() => {
-        if (project === undefined) {
-            navigate("/*")
-        }
-    }, [])
-
     return (
-        <div>coucou</div>
+        <Fragment>
+            {project ?
+                <div className="project">
+                    <NavigateBack path="/portfolio">Retours aux projets</NavigateBack>
+                    <Content project={project} />
+                </div>
+                : <Navigate to="/*" />
+            }
+        </Fragment>
     )
 }
 

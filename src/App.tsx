@@ -25,7 +25,7 @@ function App() {
           <Route path='/' element={<Navigate to="/welcome" />}></Route>
           <Route path='/welcome' element={<Welcome />}></Route>
           <Route path='/portfolio' element={<Portfolio />}></Route>
-          <Route path='/project/:id' element={<Project />}></Route>
+          <Route path='/portfolio/project/:id' element={<Project />}></Route>
           <Route path='*' element={<Error404 />}></Route>
         </Routes>
       </Main>

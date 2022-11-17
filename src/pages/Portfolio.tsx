@@ -2,7 +2,6 @@ import { ChangeEvent, FC, useEffect, useState } from "react";
 import datas from "../datas/projects.json";
 import Card from "../components/Card";
 import Tag from "../components/Tag";
-import useTheme from "../utils/themeContext";
 
 const getTags = () => {
     let tags: string[] = [];
@@ -17,7 +16,6 @@ const getTags = () => {
 
 const Portfolio: FC = () => {
     const tags = getTags()
-    const { state } = useTheme();
     const [projects, setProjects] = useState(datas)
     const [filters, setFilters] = useState<string[]>([])
 

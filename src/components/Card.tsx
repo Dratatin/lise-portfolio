@@ -16,7 +16,7 @@ const Card: FC<Props> = ({ title, preview, subtitle, date, tags, id }) => {
 
     return (
         <article className="card">
-            <Link to={`/project/${id}`} className="card__link">
+            <Link to={`/portfolio/project/${id}`} className="card__link">
                 <Fragment>
                     <img className="card__link__img" src={preview}></img>
                     <div className="card__link__tags">
