@@ -376,6 +376,7 @@ body {
   display: flex;
   border-radius: 0.7rem;
   text-transform: capitalize;
+  cursor: pointer;
 }
 .tag__label.theme--primary {
   outline: 1px solid #fff;

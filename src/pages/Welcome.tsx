@@ -8,7 +8,7 @@ const Welcome: FunctionComponent = () => {
     let navigate = useNavigate();
 
     const handleClick = () => {
-        navigate("/home")
+        navigate("/portfolio")
     }
     return (
         <section className={`welcome theme--${state.theme}`}>

@@ -50,7 +50,7 @@ const Portfolio: FC = () => {
             <div className="portfolio__projects">
                 {projects.length > 0 ?
                     projects.map((elem, index) => (
-                        <Card key={`p-${index}`} title={elem.title} preview={elem.preview} subtitle={elem.subtitle} date={elem.date} tags={elem.tags} />
+                        <Card key={`p-${index}`} title={elem.title} preview={elem.preview} subtitle={elem.subtitle} date={elem.date} tags={elem.tags} id={elem.id} />
                     ))
                     :
                     <p className="portfolio__projects__empty">Aucun projet ne correspond à votre recherche</p>
