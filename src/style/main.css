@@ -147,7 +147,6 @@ p {
 }
 
 .main {
-  padding: 0.5rem 3rem 2rem 3rem;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -466,6 +465,82 @@ p {
   border-radius: 0.7rem;
 }
 
+.slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2rem 3rem 2rem 3rem;
+  font-weight: 600;
+}
+.slider.theme--primary {
+  background: #3b2382;
+}
+.slider.theme--secondary {
+  background: #cc8400;
+}
+.slider.theme--tertiary {
+  background: #3b2382;
+}
+.slider.theme--quaternary {
+  background: #171717;
+}
+.slider__title {
+  font-weight: inherit;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.slider__container {
+  position: relative;
+}
+.slider__container__button {
+  position: absolute;
+  z-index: 999;
+}
+.slider__container__button--previous {
+  left: 0;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.slider__container__button--next {
+  right: 0;
+  top: 50%;
+  -webkit-transform: translate(50%, -50%);
+      -ms-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+}
+.slider__container__carousel {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.slider__container__carousel__inner {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 80%;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  -o-transition: transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  gap: 5%;
+}
+.slider__container__carousel__inner__item img {
+  width: 100%;
+  height: 35vh;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 0.5rem;
+}
+
 .portfolio {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -475,6 +550,7 @@ p {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 2rem;
+  padding: 0.5rem 3rem 2rem 3rem;
 }
 .portfolio__projects {
   display: -webkit-box;
@@ -519,6 +595,7 @@ p {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 2rem;
+  padding: 0.5rem 3rem 2rem 3rem;
 }
 .welcome.theme--primary {
   color: #fff;
@@ -617,5 +694,16 @@ p {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  gap: 2rem;
+}
+.project__main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 3rem;
+  padding: 0.5rem 3rem 2rem 3rem;
 }/*# sourceMappingURL=main.css.map */

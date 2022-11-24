@@ -3,6 +3,7 @@ import { useParams, Navigate } from "react-router-dom";
 import datas from "../datas/projects.json";
 import NavigateBack from "../components/NavigateBack";
 import Content from "../components/Content";
+import Slider from "../components/Slider";
 
 type ParamsType = {
     id: string
@@ -16,8 +17,13 @@ const Project: FC = () => {
         <Fragment>
             {project ?
                 <div className="project">
-                    <NavigateBack path="/portfolio">Retours aux projets</NavigateBack>
-                    <Content project={project} />
+                    <div className="project__main">
+                        <NavigateBack path="/portfolio">Retours aux projets</NavigateBack>
+                        <Content project={project} />
+                    </div>
+                    <div className="project__others">
+                        <Slider projects={datas} />
+                    </div>
                 </div>
                 : <Navigate to="/*" />
             }
