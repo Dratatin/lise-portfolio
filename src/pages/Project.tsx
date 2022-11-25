@@ -12,6 +12,7 @@ type ParamsType = {
 const Project: FC = () => {
     const params = useParams<ParamsType>();
     const project = datas.find(({ id }) => id === parseInt(params.id!));
+    const otherProjects = datas.filter(({ id }) => id !== parseInt(params.id!));
 
     return (
         <Fragment>
@@ -22,7 +23,7 @@ const Project: FC = () => {
                         <Content project={project} />
                     </div>
                     <div className="project__others">
-                        <Slider projects={datas} />
+                        <Slider projects={otherProjects} />
                     </div>
                 </div>
                 : <Navigate to="/*" />

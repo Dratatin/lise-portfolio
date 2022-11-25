@@ -9,12 +9,14 @@ import Error404 from './pages/Error404';
 import Main from './layout/Main';
 import Header from './layout/Header';
 import Footer from './layout/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import { ThemeProvider } from './utils/themeContext';
 
 function App() {
   const { pathname } = useLocation();
   return (
     <ThemeProvider>
+      <ScrollToTop />
       {pathname !== "/welcome" ?
         pathname !== "/*" ?
           <Header />

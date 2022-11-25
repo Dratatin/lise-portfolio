@@ -1,4 +1,5 @@
 import { FC, useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import useTheme from "../utils/themeContext";
 
 type Project = {
@@ -13,6 +14,7 @@ type Props = {
 const Slider: FC<Props> = ({ projects }) => {
     const { state } = useTheme();
     const [activeIndex, setActiveIndex] = useState(0);
+    const elem = useRef<null | HTMLDivElement>(null)
 
     const updateIndex = (newIndex: number) => {
         if (newIndex < 0) {
@@ -36,21 +38,28 @@ const Slider: FC<Props> = ({ projects }) => {
         }
     }
 
+    const handleProjectClick = () => {
+        setActiveIndex(0)
+        if (window.innerWidth <= 768) {
+            elem.current!.scrollLeft = 0;
+        }
+    }
+
     return (
         <div className={`slider theme--${state.theme}`}>
             <h4 className="slider__title">Autres Projets</h4>
             <div className="slider__container">
-                <button className="slider__container__button slider__container__button--previous" onClick={() => handleClick("before")}>Avant</button>
-                <div className="slider__container__carousel">
+                <button className="slider__container__button slider__container__button--previous" onClick={() => handleClick("before")}></button>
+                <div ref={elem} className="slider__container__carousel">
                     <div className="slider__container__carousel__inner" style={{ transform: `translateX(-${activeIndex * 85}%)` }}>
                         {projects.map((project, index) => (
-                            <div key={`s-${project.id}`} className="slider__container__carousel__inner__item">
+                            <Link onClick={handleProjectClick} key={`s-${project.id}`} to={`/portfolio/project/${project.id}`} className="slider__container__carousel__inner__item">
                                 <img src={project.preview}></img>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 </div>
-                <button className="slider__container__button slider__container__button--next" onClick={() => handleClick("after")}>Après</button>
+                <button className="slider__container__button slider__container__button--next" onClick={() => handleClick("after")}></button>
             </div>
         </div>
     )
