@@ -7,7 +7,7 @@
     font-size: 14px;
     @include themify() {
         background-color: themed('main-background');
-        color: themed('main-color');
+        color: themed('hightlight-color');
         border-top: 1px solid darken(themed('primary'), 15%);
     }
 }

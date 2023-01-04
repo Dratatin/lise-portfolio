@@ -1,14 +1,18 @@
 import { FC, SetStateAction, Dispatch } from "react"
+import Close from "./Close"
 
 type Props = {
-    setDevelop: Dispatch<SetStateAction<boolean>>
+    setOpen: Dispatch<SetStateAction<boolean>>
 }
 
-const About: FC<Props> = ({ setDevelop }) => {
+const About: FC<Props> = ({ setOpen }) => {
     return (
-        <button className="profil__parameters" onClick={() => setDevelop(false)}>
-            close
-        </button>
+        <div className="about">
+            <div className="about-content">
+
+            </div>
+            <Close setOpen={setOpen}/>
+        </div>
     )
 }
 

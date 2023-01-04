@@ -48,7 +48,7 @@ const Slider: FC<Props> = ({ projects }) => {
     return (
         <div className={`slider theme--${state.theme}`}>
             <h4 className="slider__title">Autres Projets</h4>
-            <div className="slider__container">
+            <div className="slider__container">                
                 <button className="slider__container__button slider__container__button--previous" onClick={() => handleClick("before")}></button>
                 <div ref={elem} className="slider__container__carousel">
                     <div className="slider__container__carousel__inner" style={{ transform: `translateX(-${activeIndex * 85}%)` }}>

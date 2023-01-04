@@ -1,0 +1,48 @@
+.close {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    @include themify() {
+        background: themed('tertiary');
+    }
+    &__button {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 32px;
+        height: 32px;
+        border-radius: 32px;
+        border: 2px solid white;
+        @include themify() {
+            background: themed('tertiary');
+        }
+        &__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include themify() {
+                &:before, &:after {
+                    background: themed('hightlight-color');
+                }
+            }
+            &:before, &:after {
+                content: "";
+                position: absolute;
+                height: 20px;
+                width: 2px;
+            }
+            &:before {
+                transform: rotate(45deg);
+            }
+            &:after {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}

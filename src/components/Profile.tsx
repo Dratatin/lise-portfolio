@@ -6,21 +6,21 @@ import flatProfile from "../assets/profile1.svg";
 const Profile: FC = () => {
     const { state } = useTheme();
     const [profile, setProfile] = useState(flatProfile);
-    const [develop, setDevelop] = useState(false)
+    const [open, setOpen] = useState(false)
 
     return (
         <div className="profil">
-            <div className={`profil__picture ${develop ? "develop" : ""}`}>
+            <div className={`profil__picture ${open ? "open" : ""}`}>
                 <img src={profile} alt="image de profile de sorcière"></img>
-                {develop ?
-                    <About setDevelop={setDevelop}></About>
+                {open ?
+                    <About setOpen={setOpen}></About>
                     : null
                 }
             </div>
-            {develop ?
+            {open ?
                 null
                 :
-                <button onClick={() => setDevelop(true)} className="profil__parameters">
+                <button onClick={() => setOpen(true)} className="profil__parameters">
                 </button>
             }
         </div>

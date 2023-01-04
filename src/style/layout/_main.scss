@@ -4,6 +4,6 @@
     flex-direction: column;
     @include themify() {
         background-color: themed('main-background');
-        color: themed('main-color')
+        color: themed('hightlight-color')
     }
 }

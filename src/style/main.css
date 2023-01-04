@@ -86,7 +86,6 @@ p {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   display: block;
   width: 25px;
@@ -103,7 +102,6 @@ p {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   display: block;
   width: 25px;
@@ -120,7 +118,6 @@ p {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   display: block;
   width: 25px;
@@ -137,7 +134,6 @@ p {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   display: block;
   width: 25px;
@@ -282,53 +278,45 @@ p {
 .card__link__tags__tag.theme--primary:nth-child(2n+1) {
   background-color: #EC6836;
   -webkit-transform: rotate(10deg);
-      -ms-transform: rotate(10deg);
           transform: rotate(10deg);
 }
 .card__link__tags__tag.theme--primary:nth-child(2n) {
   background-color: #F4B940;
   color: #4D2EAA;
   -webkit-transform: rotate(-10deg);
-      -ms-transform: rotate(-10deg);
           transform: rotate(-10deg);
 }
 .card__link__tags__tag.theme--secondary:nth-child(2n+1) {
   background-color: #EC6836;
   -webkit-transform: rotate(10deg);
-      -ms-transform: rotate(10deg);
           transform: rotate(10deg);
 }
 .card__link__tags__tag.theme--secondary:nth-child(2n) {
   background-color: #C74949;
   color: #4D2EAA;
   -webkit-transform: rotate(-10deg);
-      -ms-transform: rotate(-10deg);
           transform: rotate(-10deg);
 }
 .card__link__tags__tag.theme--tertiary:nth-child(2n+1) {
   background-color: #EC6836;
   -webkit-transform: rotate(10deg);
-      -ms-transform: rotate(10deg);
           transform: rotate(10deg);
 }
 .card__link__tags__tag.theme--tertiary:nth-child(2n) {
   background-color: #E0F3D1;
   color: #4D2EAA;
   -webkit-transform: rotate(-10deg);
-      -ms-transform: rotate(-10deg);
           transform: rotate(-10deg);
 }
 .card__link__tags__tag.theme--quaternary:nth-child(2n+1) {
   background-color: #EC6836;
   -webkit-transform: rotate(10deg);
-      -ms-transform: rotate(10deg);
           transform: rotate(10deg);
 }
 .card__link__tags__tag.theme--quaternary:nth-child(2n) {
   background-color: #000;
   color: #303030;
   -webkit-transform: rotate(-10deg);
-      -ms-transform: rotate(-10deg);
           transform: rotate(-10deg);
 }
 .card__details {
@@ -512,7 +500,7 @@ p {
 }
 @media screen and (max-width: 768px) {
   .slider__container__button {
-    pointer-events: none;
+    display: none;
   }
 }
 .slider__container__button:before {
@@ -529,26 +517,22 @@ p {
   left: 0;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
 .slider__container__button--previous:before {
   left: 41%;
   -webkit-transform: translateY(-50%) rotate(-45deg);
-      -ms-transform: translateY(-50%) rotate(-45deg);
           transform: translateY(-50%) rotate(-45deg);
 }
 .slider__container__button--next {
   right: 0;
   top: 50%;
   -webkit-transform: translate(50%, -50%);
-      -ms-transform: translate(50%, -50%);
           transform: translate(50%, -50%);
 }
 .slider__container__button--next:before {
   right: 41%;
   -webkit-transform: translateY(-50%) rotate(135deg);
-      -ms-transform: translateY(-50%) rotate(135deg);
           transform: translateY(-50%) rotate(135deg);
 }
 .slider__container__carousel {
@@ -567,7 +551,6 @@ p {
   grid-auto-columns: 80%;
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
-  -o-transition: transform 0.3s;
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
   gap: 5%;
@@ -579,6 +562,93 @@ p {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 0.5rem;
+}
+
+.close {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.close.theme--primary {
+  background: #EC6836;
+}
+.close.theme--secondary {
+  background: #EC6836;
+}
+.close.theme--tertiary {
+  background: #EC6836;
+}
+.close.theme--quaternary {
+  background: #EC6836;
+}
+.close__button {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  border: 2px solid white;
+}
+.close__button.theme--primary {
+  background: #EC6836;
+}
+.close__button.theme--secondary {
+  background: #EC6836;
+}
+.close__button.theme--tertiary {
+  background: #EC6836;
+}
+.close__button.theme--quaternary {
+  background: #EC6836;
+}
+.close__button__icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.close__button__icon.theme--primary:before, .close__button__icon.theme--primary:after {
+  background: #fff;
+}
+.close__button__icon.theme--secondary:before, .close__button__icon.theme--secondary:after {
+  background: #fff;
+}
+.close__button__icon.theme--tertiary:before, .close__button__icon.theme--tertiary:after {
+  background: #fff;
+}
+.close__button__icon.theme--quaternary:before, .close__button__icon.theme--quaternary:after {
+  background: #fff;
+}
+.close__button__icon:before, .close__button__icon:after {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 2px;
+}
+.close__button__icon:before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.close__button__icon:after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
 .portfolio {
@@ -686,7 +756,6 @@ p {
   left: 50%;
   background: #fff;
   -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   height: 20px;
   font-size: 18px;
