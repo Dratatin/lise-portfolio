@@ -1,8 +1,7 @@
 import { FC, ChangeEvent, useEffect, useState } from "react";
-import flatProfile from "../assets/profile1.svg";
+import flatProfile from "../assets/avatar.png";
 import useTheme from "../utils/themeContext";
 import About from "../components/About";
-import ShadedBackground from "./ShadedBackground";
 
 const Header: FC = () => {
     const { setTheme, setAboutOpened, state } = useTheme();
@@ -30,12 +29,11 @@ const Header: FC = () => {
                 <div className="header__profil__picture">
                     <img src={profile} alt="image de profile de sorcière"></img>
                     <button onClick={() => setAboutOpened(true)}>
+                        À propos
                     </button>
                 </div>
                 {state.about.opened ?
-                    <ShadedBackground>
-                        <About></About>
-                    </ShadedBackground>
+                    <About />
                 : null
             }
             </div>

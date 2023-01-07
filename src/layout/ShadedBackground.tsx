@@ -1,9 +1,8 @@
 import { FC, PropsWithChildren } from "react"
 
-const ShadedBackground: FC<PropsWithChildren> = ({children}) => {
+const ShadedBackground: FC = () => {
     return (
         <div className="shaded-background">
-            {children}
         </div>
     )
 }
