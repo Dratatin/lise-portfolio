@@ -1,4 +1,5 @@
 .header {
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -11,6 +12,7 @@
         display: flex;
         gap: 2rem;
         &__button {
+            z-index: 100;
             input[type=radio] {
                 width: 18px;
                 height: 18px;
@@ -38,6 +40,27 @@
                     }
                 }
             }   
+        }
+    }
+    &__profil {
+        &__picture {
+            position: relative;
+            img {
+                display: block;
+                width: 120px;
+                height: 120px;
+                border-radius: 90px;
+                @include box-shadow;
+            }
+            button {
+                width: 30px;
+                height: 30px;
+                position: absolute;
+                bottom: -2px;
+                right: -2px;
+                border-radius: 25px;
+                background: #fff;
+            }
         }
     }
 }

@@ -2,14 +2,13 @@ import { createContext, useReducer, useContext } from "react";
 import { FC, PropsWithChildren } from "react";
 import themeReducer from "./themeReducer";
 import { initialState } from "./themeReducer";
+import { State } from "./themeReducer";
 
-type ThemeState = {
-    theme: string;
-}
 
 type ThemeContextType = {
-    state: ThemeState;
+    state: State;
     setTheme: (value: string) => void;
+    setAboutOpened: (value: boolean) => void;
 };
 
 const ThemeContext = createContext<ThemeContextType>(undefined!)
@@ -24,9 +23,17 @@ export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
         })
     }
 
+    const setAboutOpened = (opened: boolean) => {
+        dispatch({
+            type: "SET_ABOUT_OPENED",
+            payload: opened
+        })
+    }
+
     const store = {
         state,
-        setTheme
+        setTheme,
+        setAboutOpened
     }
     return <ThemeContext.Provider value={store}> {children} </ThemeContext.Provider>
 }

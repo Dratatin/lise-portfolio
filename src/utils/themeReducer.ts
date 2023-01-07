@@ -1,14 +1,20 @@
-type State = {
+export interface State {
     theme: string;
+    about: {
+        opened: boolean;
+    }
 }
 
-type Action = {
+interface Action {
     type: string;
-    payload: string;
+    payload: string | boolean;
 }
 
 export const initialState = {
-    theme: "primary"
+    theme: "primary",
+    about: {
+        opened: false,
+    }
 };
 
 const themeReducer = (state: State, action: Action) => {
@@ -17,7 +23,15 @@ const themeReducer = (state: State, action: Action) => {
         case "SET_THEME":
             return {
                 ...state,
-                theme: payload
+                theme: payload as string
+            }
+        case "SET_ABOUT_OPENED":
+            return {
+                ...state,
+                about: {
+                    ...state.about,
+                    opened: payload as boolean,
+                }
             }
         default:
             throw new Error("no case for " + type)

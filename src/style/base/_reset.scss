@@ -10,6 +10,9 @@ button, ul, li, a, input[type=radio], input[type=checkbox] {
 #root {
     display: flex;
     min-height: 100vh;
-    display: flex;
     flex-direction: column;
+}
+
+body.remove-scroll {
+    overflow-y: hidden;
 }
