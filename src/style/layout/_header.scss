@@ -8,6 +8,10 @@
     @include themify() {
         background-color: themed(primary);
     }
+    &.open {
+        justify-content: center;
+        gap: 2rem;
+    }
     &__themes {
         display: flex;
         gap: 2rem;
@@ -59,10 +63,13 @@
             padding-top: 100px;
             .header__profil__picture {
                 width: 100%;
-                height: 340px;
-                overflow: hidden;
+                height: 35vh;
                 img {
                     border-radius: 10px 10px 0 0;
+                }
+                button {
+                    bottom: -20px;
+                    right: 10px;
                 }
             }
         }
@@ -72,6 +79,7 @@
             height: 120px;
             img {
                 width: 100%;
+                height: 100%;
                 object-fit: cover;
                 @include box-shadow;
                 border-radius: 90px;
@@ -79,10 +87,14 @@
             button {
                 position: absolute;
                 padding: 0.5rem;
-                bottom: -2px;
-                right: -2px;
+                bottom: 3px;
+                right: -15px;
                 border-radius: 10px;
                 background: #fff;
+                color: #fff;
+                @include themify() {
+                    background-color: themed(secondary);
+                }
             }
         }
     }

@@ -1,10 +1,14 @@
-.navigateBack {
+.navigate-back {
     cursor: pointer;
+    display: flex;
+    gap: 5px;
+    align-items: center;
     @include themify() {
-        color: themed("secondary");
+        color: themed(secondary);
     }
     &__icon {
-        width: 25px;
-        margin-right: 6px;
+        @include themify() {
+            fill: themed(secondary);
+        }
     }
 }

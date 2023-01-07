@@ -16,7 +16,7 @@ const Header: FC = () => {
     },[state.about.opened])
 
     return (
-        <header className={`header theme--${state.theme}`}>
+        <header className={`header theme--${state.theme} ${state.about.opened? "open" : ""}`}>
             <div className="header__themes" onChange={handleChange}>
                 <label className="header__themes__button">
                     <input className="theme--primary" type="radio" id="primary" name="themes" value="primary" defaultChecked={state.theme === "primary"}></input>
@@ -28,7 +28,7 @@ const Header: FC = () => {
             <div className={`header__profil ${state.about.opened ? "open" : ""}`}>
                 <div className="header__profil__picture">
                     <img src={profile} alt="image de profile de sorcière"></img>
-                    <button onClick={() => setAboutOpened(true)}>
+                    <button className={`theme--${state.theme}`} onClick={() => setAboutOpened(true)}>
                         À propos
                     </button>
                 </div>
