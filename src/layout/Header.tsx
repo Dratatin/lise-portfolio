@@ -16,8 +16,8 @@ const Header: FC = () => {
     },[state.about.opened])
 
     return (
-        <header className={`header theme--${state.theme} ${state.about.opened? "open" : ""}`}>
-            <div className="header__themes" onChange={handleChange}>
+        <header className={`header theme--${state.theme}`}>
+            <div className={`header__themes header__themes--left ${state.about.opened? "open" : ""}`} onChange={handleChange}>
                 <label className="header__themes__button">
                     <input className="theme--primary" type="radio" id="primary" name="themes" value="primary" defaultChecked={state.theme === "primary"}></input>
                 </label>
@@ -37,7 +37,7 @@ const Header: FC = () => {
                 : null
             }
             </div>
-            <div className="header__themes" onChange={handleChange}>
+            <div className={`header__themes header__themes--right ${state.about.opened? "open" : ""}`} onChange={handleChange}>
                 <label className="header__themes__button">
                     <input className="theme--tertiary" type="radio" id="tertiary" name="themes" value="tertiary" defaultChecked={state.theme === "tertiary"}></input>
                 </label>

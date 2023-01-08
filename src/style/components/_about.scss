@@ -1,49 +1,67 @@
 .about {
-    background: #fff;
-    border-radius: 0 0 10px 10px;
-    padding: 2rem 4rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    overflow: auto;
-    height: 40vh;
-    &__description {
-        display: flex;
+    &__content {
+        background: #fff;
+        border-radius: 0 0 10px 10px;
+        padding: 2rem 4rem;
+        text-align: center;
         flex-direction: column;
-        gap: 10px;
-        &__title {
-            @include themify() {
-                color: themed(primary);
-            }
-        }
-    }
-    &__networks {
+        gap: 30px;
+        overflow: auto;
+        height: 40vh;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-        &__link {
-            width: 15px;
-            height: 15px;
-            border-radius: 30px;
+        animation: appear 2s;
+        &__description {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.5rem;
-            color: #fff;
-            @include themify() {
-                background: themed(primary);
+            flex-direction: column;
+            gap: 10px;
+            &__title {
+                @include themify() {
+                    color: themed(primary);
+                }
             }
         }
-        &__cv {
-            width: auto;
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
-            @include themify() {
-                color: themed(primary);
-                outline: 2px solid themed(primary);
+        &__networks {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            &__link {
+                width: 15px;
+                height: 15px;
+                border-radius: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.5rem;
+                color: #fff;
+                @include themify() {
+                    background: themed(primary);
+                }
+            }
+            &__cv {
+                width: auto;
+                padding: 0.5rem 1rem;
+                border-radius: 30px;
+                @include themify() {
+                    color: themed(primary);
+                    outline: 2px solid themed(primary);
+                }
             }
         }
     }
 }
+
+@keyframes appear {
+    0% {
+        transform: translateY(-40vh);
+        visibility: hidden;
+    }
+    49% {
+        transform: translateY(-40vh);
+        visibility: hidden;
+    }
+    100% {
+        transform: translateY(0px);
+        visibility: visible;
+    }
+  }

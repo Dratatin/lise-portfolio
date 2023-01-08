@@ -61,20 +61,28 @@ p {
 .header.theme--quaternary {
   background-color: #303030;
 }
-.header.open {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: 2rem;
-}
 .header__themes {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 2rem;
-}
-.header__themes__button {
   z-index: 150;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+}
+.header__themes--left.open {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+.header__themes--right.open {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
 }
 .header__themes__button input[type=radio] {
   width: 18px;
@@ -176,6 +184,12 @@ p {
       -ms-flex-direction: column;
           flex-direction: column;
   z-index: 100;
+  -webkit-transition-property: padding-top, height;
+  transition-property: padding-top, height;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
 }
 .header__profil.open {
   height: 100vh;
@@ -193,9 +207,16 @@ p {
   right: 10px;
 }
 .header__profil__picture {
+  z-index: 200;
   position: relative;
   width: 120px;
   height: 120px;
+  -webkit-transition-property: width, height;
+  transition-property: width, height;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
 }
 .header__profil__picture img {
   width: 100%;
@@ -205,6 +226,12 @@ p {
   -webkit-box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
           box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
   border-radius: 90px;
+  -webkit-transition-property: border-radius;
+  transition-property: border-radius;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
 }
 .header__profil__picture button {
   position: absolute;
@@ -654,14 +681,11 @@ p {
   border-radius: 0.5rem;
 }
 
-.about {
+.about__content {
   background: #fff;
   border-radius: 0 0 10px 10px;
   padding: 2rem 4rem;
   text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -669,8 +693,13 @@ p {
   gap: 30px;
   overflow: auto;
   height: 40vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-animation: appear 2s;
+          animation: appear 2s;
 }
-.about__description {
+.about__content__description {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -680,19 +709,19 @@ p {
           flex-direction: column;
   gap: 10px;
 }
-.about__description__title.theme--primary {
+.about__content__description__title.theme--primary {
   color: #4D2EAA;
 }
-.about__description__title.theme--secondary {
+.about__content__description__title.theme--secondary {
   color: #14533D;
 }
-.about__description__title.theme--tertiary {
+.about__content__description__title.theme--tertiary {
   color: #4D2EAA;
 }
-.about__description__title.theme--quaternary {
+.about__content__description__title.theme--quaternary {
   color: #303030;
 }
-.about__networks {
+.about__content__networks {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -704,7 +733,7 @@ p {
           align-items: center;
   gap: 20px;
 }
-.about__networks__link {
+.about__content__networks__link {
   width: 15px;
   height: 15px;
   border-radius: 30px;
@@ -720,40 +749,75 @@ p {
   padding: 0.5rem;
   color: #fff;
 }
-.about__networks__link.theme--primary {
+.about__content__networks__link.theme--primary {
   background: #4D2EAA;
 }
-.about__networks__link.theme--secondary {
+.about__content__networks__link.theme--secondary {
   background: #14533D;
 }
-.about__networks__link.theme--tertiary {
+.about__content__networks__link.theme--tertiary {
   background: #4D2EAA;
 }
-.about__networks__link.theme--quaternary {
+.about__content__networks__link.theme--quaternary {
   background: #303030;
 }
-.about__networks__cv {
+.about__content__networks__cv {
   width: auto;
   padding: 0.5rem 1rem;
   border-radius: 30px;
 }
-.about__networks__cv.theme--primary {
+.about__content__networks__cv.theme--primary {
   color: #4D2EAA;
   outline: 2px solid #4D2EAA;
 }
-.about__networks__cv.theme--secondary {
+.about__content__networks__cv.theme--secondary {
   color: #14533D;
   outline: 2px solid #14533D;
 }
-.about__networks__cv.theme--tertiary {
+.about__content__networks__cv.theme--tertiary {
   color: #4D2EAA;
   outline: 2px solid #4D2EAA;
 }
-.about__networks__cv.theme--quaternary {
+.about__content__networks__cv.theme--quaternary {
   color: #303030;
   outline: 2px solid #303030;
 }
 
+@-webkit-keyframes appear {
+  0% {
+    -webkit-transform: translateY(-40vh);
+            transform: translateY(-40vh);
+    visibility: hidden;
+  }
+  49% {
+    -webkit-transform: translateY(-40vh);
+            transform: translateY(-40vh);
+    visibility: hidden;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    visibility: visible;
+  }
+}
+
+@keyframes appear {
+  0% {
+    -webkit-transform: translateY(-40vh);
+            transform: translateY(-40vh);
+    visibility: hidden;
+  }
+  49% {
+    -webkit-transform: translateY(-40vh);
+            transform: translateY(-40vh);
+    visibility: hidden;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    visibility: visible;
+  }
+}
 .close {
   width: 100%;
   position: fixed;
@@ -947,7 +1011,6 @@ p {
   background: #fff;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  height: 20px;
   font-size: 18px;
   font-weight: bold;
 }

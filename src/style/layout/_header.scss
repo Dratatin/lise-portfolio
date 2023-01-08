@@ -8,15 +8,23 @@
     @include themify() {
         background-color: themed(primary);
     }
-    &.open {
-        justify-content: center;
-        gap: 2rem;
-    }
     &__themes {
         display: flex;
         gap: 2rem;
+        z-index: 150;
+        transition-property: transform;
+        @include transitionAnimation();
+        &--left {
+            &.open {
+                transform: translateX(100%);
+            }
+        }
+        &--right {
+            &.open {
+                transform: translateX(-100%);
+            }
+        }
         &__button {
-            z-index: 150;
             input[type=radio] {
                 width: 18px;
                 height: 18px;
@@ -58,6 +66,8 @@
         align-items: center;
         flex-direction: column;
         z-index: 100;
+        transition-property: padding-top, height;
+        @include transitionAnimation();
         &.open {
             height: 100vh;
             padding-top: 100px;
@@ -74,15 +84,20 @@
             }
         }
         &__picture {
+            z-index: 200;
             position: relative;
             width: 120px;
             height: 120px;
+            transition-property: width, height;
+            @include transitionAnimation();
             img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
                 @include box-shadow;
                 border-radius: 90px;
+                transition-property: border-radius;
+                @include transitionAnimation();
             }
             button {
                 position: absolute;
