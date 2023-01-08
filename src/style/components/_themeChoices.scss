@@ -1,0 +1,46 @@
+.theme-choices {
+    display: flex;
+    gap: 2rem;
+    z-index: 150;
+    transition-property: transform;
+    @include transitionAnimation();
+    &--left {
+        &.open {
+            transform: translateX(100%);
+        }
+    }
+    &--right {
+        &.open {
+            transform: translateX(-100%);
+        }
+    }
+    &__button {
+        input[type=radio] {
+            width: 18px;
+            height: 18px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            @include themify() {
+                background-color: themed('secondary');  
+                &:checked {
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        display: block;
+                        width: 25px;
+                        height: 25px;
+                        border-radius: 18px;
+                        border: 2px solid themed('secondary');
+                    }
+                }
+            }
+        }   
+    }
+}
