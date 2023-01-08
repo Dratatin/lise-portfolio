@@ -592,6 +592,9 @@ p {
   border-radius: 0.5rem;
 }
 
+.profile-description {
+  overflow: hidden;
+}
 .profile-description__content {
   background: #fff;
   border-radius: 0 0 10px 10px;
@@ -607,10 +610,10 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-animation: appear 2s;
-          animation: appear 2s;
+  -webkit-animation: appear 1s 1s both;
+          animation: appear 1s 1s both;
 }
-.profile-description__content__description {
+.profile-description__content__text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -620,16 +623,16 @@ p {
           flex-direction: column;
   gap: 10px;
 }
-.profile-description__content__description__title.theme--primary {
+.profile-description__content__text__title.theme--primary {
   color: #4D2EAA;
 }
-.profile-description__content__description__title.theme--secondary {
+.profile-description__content__text__title.theme--secondary {
   color: #14533D;
 }
-.profile-description__content__description__title.theme--tertiary {
+.profile-description__content__text__title.theme--tertiary {
   color: #4D2EAA;
 }
-.profile-description__content__description__title.theme--quaternary {
+.profile-description__content__text__title.theme--quaternary {
   color: #303030;
 }
 .profile-description__content__networks {
@@ -700,11 +703,6 @@ p {
             transform: translateY(-40vh);
     visibility: hidden;
   }
-  49% {
-    -webkit-transform: translateY(-40vh);
-            transform: translateY(-40vh);
-    visibility: hidden;
-  }
   100% {
     -webkit-transform: translateY(0px);
             transform: translateY(0px);
@@ -714,11 +712,6 @@ p {
 
 @keyframes appear {
   0% {
-    -webkit-transform: translateY(-40vh);
-            transform: translateY(-40vh);
-    visibility: hidden;
-  }
-  49% {
     -webkit-transform: translateY(-40vh);
             transform: translateY(-40vh);
     visibility: hidden;
@@ -771,6 +764,12 @@ p {
   border-radius: 10px;
   background: #fff;
   color: #fff;
+  -webkit-transition-property: bottom, right;
+  transition-property: bottom, right;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
 }
 .profile-picture__button.theme--primary {
   background-color: #F4B940;

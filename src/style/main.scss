@@ -2,6 +2,9 @@
 @import 'utils/variables';
 @import 'utils/mixins';
 
+//themes
+@import 'themes/themesMixin';
+
 //vendors
 
 //base
@@ -31,9 +34,3 @@
 @import 'pages/welcome';
 @import 'pages/project';
 @import 'pages/error404';
-
-//themes
-@import 'themes/primary';
-@import 'themes/secondary';
-@import 'themes/tertiary';
-@import 'themes/quaternary';

@@ -8,8 +8,8 @@ const ProfileDescription: FC = () => {
     return (
         <div className="profile-description">
             <div className="profile-description__content">
-                <div className="profile-description__content__description">
-                    <h1 className={`profile-description__content__description__title theme--${state.theme}`}>Lise Denis</h1>
+                <div className="profile-description__content__text">
+                    <h1 className={`profile-description__content__text__title theme--${state.theme}`}>Lise Denis</h1>
                     <p>
                         Je suis graphiste, directrice artistique et j'ai une passion : créer, découvrir
                         de nouveaux univers et imaginer des visuels vibrants et impactants.

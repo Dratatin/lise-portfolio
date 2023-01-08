@@ -1,4 +1,4 @@
-import { FC, useState } from "react"
+import { FC } from "react"
 import useTheme from "../utils/themeContext"
 import ProfilePicture from "./ProfilePicture";
 import ProfileDescription from "./ProfileDescription";
@@ -8,9 +8,9 @@ const About: FC = () => {
 
     return (
         <div className={`about ${state.about.opened ? "open" : ""}`}>
-                <ProfilePicture />
-                {state.about.opened ?
-                    <ProfileDescription />
+            <ProfilePicture />
+            {state.about.opened ?
+                <ProfileDescription />
                 : null
             }
         </div>
