@@ -2,7 +2,7 @@
     position: absolute;
     width: 100vw;
     max-width: 100%;
-    padding: 2rem 1rem 1rem 1rem;
+    padding: 3rem 1rem 1rem 1rem;
     left: 50%;
     top: 0;
     transform: translateX(-50%);
@@ -10,10 +10,32 @@
     align-items: center;
     flex-direction: column;
     z-index: 100;
-    transition-property: padding-top, height;
-    @include transitionAnimation();
-    &.open {
+    &.grow-in {
+        animation: AboutGrowIn 1s both;
+    }
+    &.grow-out {
+        animation: AboutGrowOut 1s 1s both;
+    }
+}
+
+@keyframes AboutGrowIn {
+    0% {
+    }
+    100% {
         height: 100vh;
         padding-top: 100px;
     }
 }
+
+
+@keyframes AboutGrowOut {
+    0% {
+        padding-top: 100px;
+    }
+    100% {
+        height: auto;
+        padding: 3rem 1rem 1rem 1rem;
+    }
+}
+
+

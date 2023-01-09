@@ -1,13 +1,12 @@
 import { FC } from "react"
 import useTheme from "../utils/themeContext"
-import Close from "./Close"
 
 const ProfileDescription: FC = () => {
     const { state } = useTheme();
 
     return (
         <div className="profile-description">
-            <div className="profile-description__content">
+            <div className={`profile-description__content ${state.about.opened? "open" : "fade-out"}`}>
                 <div className="profile-description__content__text">
                     <h1 className={`profile-description__content__text__title theme--${state.theme}`}>Lise Denis</h1>
                     <p>
@@ -25,7 +24,6 @@ const ProfileDescription: FC = () => {
                     <a className={`profile-description__content__networks__link theme--${state.theme}`} href="#">Be</a>
                 </div>
             </div>           
-            <Close/>
         </div>
     )
 }

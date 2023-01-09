@@ -1,17 +1,25 @@
 .theme-choices {
     display: flex;
+    position: relative;
     gap: 2rem;
     z-index: 150;
-    transition-property: transform;
-    @include transitionAnimation();
+    top: 50%;
     &--left {
-        &.open {
-            transform: translateX(100%);
+        left: 0;
+        &.slide-in {
+            animation: SlideInLeft 1s both;
+        }
+        &.slide-out {
+            animation: SlideOutLeft 1s 1s both;
         }
     }
     &--right {
-        &.open {
-            transform: translateX(-100%);
+        right: 0;
+        &.slide-in {
+            animation: SlideInRight 1s both;
+        }
+        &.slide-out {
+            animation: SlideOutRight 1s 1s both;
         }
     }
     &__button {
@@ -42,5 +50,51 @@
                 }
             }
         }   
+    }
+}
+
+@keyframes SlideInLeft {
+    0% {
+        left: 0;
+        transform: translateX(0);
+    }
+    100% {
+        left: calc(50% - 1rem);
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes SlideOutLeft {
+    0% {
+        left: calc(50% - 1rem);
+        transform: translateX(-100%);
+    }
+    100% {
+        left: 0;
+        transform: translateX(0);
+    }
+}
+
+
+
+@keyframes SlideInRight {
+    0% {
+        right: 0;
+        transform: translateX(0);
+    }
+    100% {
+        right: calc(50% - 1rem);
+        transform: translateX(100%);
+    }
+}
+
+@keyframes SlideOutRight {
+    0% {
+        right: calc(50% - 1rem);
+        transform: translateX(100%);
+    }
+    100% {
+        right: 0;
+        transform: translateX(0);
     }
 }

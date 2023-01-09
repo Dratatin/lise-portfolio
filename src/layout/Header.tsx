@@ -7,7 +7,12 @@ const Header: FC = () => {
     const { state } = useTheme();
 
     useEffect(() => {
-        document.body.classList.toggle("remove-scroll");
+        if (state.about.opened === true) {
+            document.body.classList.add("remove-scroll");
+        }
+        else {
+            document.body.classList.remove("remove-scroll");
+        }
     },[state.about.opened])
 
     return (

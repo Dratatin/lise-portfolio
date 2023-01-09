@@ -10,6 +10,12 @@
     @include themify() {
         background: themed('tertiary');
     }
+    &.fade-in {
+        animation: CloseFadeIn 1s both;
+    }
+    &.fade-out {
+        animation: CloseFadeOut 1s both;
+    }
     &__button {
         position: absolute;
         top: 0;
@@ -44,5 +50,26 @@
                 transform: rotate(-45deg);
             }
         }
+    }
+}
+
+@keyframes CloseFadeIn {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+@keyframes CloseFadeOut {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(80px);
     }
 }

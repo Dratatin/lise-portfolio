@@ -10,7 +10,10 @@
         overflow: auto;
         height: 40vh;
         display: flex;
-        animation: appear 1s 1s both;
+        animation: fadeIn 1s 1s both;
+        &.fade-out {
+            animation: fadeOut 1s both;
+        }
         &__text {
             display: flex;
             flex-direction: column;
@@ -52,7 +55,7 @@
     }
 }
 
-@keyframes appear {
+@keyframes fadeIn {
     0% {
         transform: translateY(-40vh);
         visibility: hidden;
@@ -61,4 +64,15 @@
         transform: translateY(0px);
         visibility: visible;
     }
-  }
+}
+
+@keyframes fadeOut {
+    0% {
+        transform: translateY(0px);
+        visibility: visible;
+    }
+    100% {
+        transform: translateY(-40vh);
+        visibility: hidden;
+    }
+}

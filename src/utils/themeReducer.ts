@@ -1,7 +1,7 @@
 export interface State {
     theme: string;
     about: {
-        opened: boolean;
+        opened: boolean | null;
     }
 }
 
@@ -13,7 +13,7 @@ interface Action {
 export const initialState = {
     theme: "primary",
     about: {
-        opened: false,
+        opened: null,
     }
 };
 

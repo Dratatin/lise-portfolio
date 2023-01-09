@@ -3,8 +3,12 @@
     position: relative;
     width: 120px;
     height: 120px;
-    transition-property: width, height;
-    @include transitionAnimation();
+    &.grow-in {
+        animation: PicContainerGrowIn 1s both;
+    }
+    &.grow-out {
+        animation: PicContainerGrowOut 1s 1s both;
+    }
     &.open {
         width: 100%;
         height: 35vh;
@@ -15,10 +19,11 @@
         object-fit: cover;
         @include box-shadow;
         border-radius: 90px;
-        transition-property: border-radius;
-        @include transitionAnimation();
-        &.open {
-            border-radius: 10px 10px 0 0;
+        &.grow-in {
+            animation: PicGrowIn 1s both;
+        }
+        &.grow-out {
+            animation: PicGrowOut 1s 1s both;
         }
     }
     &__button {
@@ -34,9 +39,78 @@
         @include themify() {
             background-color: themed(secondary);
         }
-        &.open {
-            bottom: -20px;
-            right: 10px;
+        &.grow-in {
+            animation: ButtonGrowIn 1s both;
         }
+        &.grow-out {
+            animation: ButtonGrowOut 1s 1s both;
+        }
+    }
+}
+
+@keyframes PicContainerGrowIn {
+    0% {
+        width: 120px;
+        height: 120px;
+    }
+    100% {
+        width: 100%;
+        height: 35vh;
+    }
+}
+
+@keyframes PicContainerGrowOut {
+    0% {
+        width: 100%;
+        height: 35vh;
+    }
+    100% {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+
+
+@keyframes PicGrowIn {
+    0% {
+        border-radius: 90px;
+    }
+    100% {
+        border-radius: 10px 10px 0 0;
+    }
+}
+
+@keyframes PicGrowOut {
+    0% {
+        border-radius: 10px 10px 0 0;
+    }
+    100% {
+        border-radius: 90px;
+    }
+}
+
+
+
+@keyframes ButtonGrowIn {
+    0% {
+        bottom: 3px;
+        right: -15px;
+    }
+    100% {
+        bottom: -20px;
+        right: 10px;
+    }
+}
+
+
+@keyframes ButtonGrowOut {
+    0% {
+        bottom: -20px;
+        right: 10px;
+    }
+    100% {
+        bottom: 3px;
+        right: -15px;
     }
 }
