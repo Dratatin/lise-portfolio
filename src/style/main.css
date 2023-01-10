@@ -135,7 +135,48 @@ p {
   top: 0;
   z-index: 50;
 }
+.shaded-background.appears {
+  -webkit-animation: appears 0.5s both;
+          animation: appears 0.5s both;
+}
+.shaded-background.disappears {
+  -webkit-animation: disappears 0.5s 0.5s both;
+          animation: disappears 0.5s 0.5s both;
+}
 
+@-webkit-keyframes appears {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes appears {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes disappears {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes disappears {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .theme-choices {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -149,23 +190,23 @@ p {
   left: 0;
 }
 .theme-choices--left.slide-in {
-  -webkit-animation: SlideInLeft 1s both;
-          animation: SlideInLeft 1s both;
+  -webkit-animation: SlideInLeft 0.5s both;
+          animation: SlideInLeft 0.5s both;
 }
 .theme-choices--left.slide-out {
-  -webkit-animation: SlideOutLeft 1s 1s both;
-          animation: SlideOutLeft 1s 1s both;
+  -webkit-animation: SlideOutLeft 0.5s 0.5s both;
+          animation: SlideOutLeft 0.5s 0.5s both;
 }
 .theme-choices--right {
   right: 0;
 }
 .theme-choices--right.slide-in {
-  -webkit-animation: SlideInRight 1s both;
-          animation: SlideInRight 1s both;
+  -webkit-animation: SlideInRight 0.5s both;
+          animation: SlideInRight 0.5s both;
 }
 .theme-choices--right.slide-out {
-  -webkit-animation: SlideOutRight 1s 1s both;
-          animation: SlideOutRight 1s 1s both;
+  -webkit-animation: SlideOutRight 0.5s 0.5s both;
+          animation: SlideOutRight 0.5s 0.5s both;
 }
 .theme-choices__button input[type=radio] {
   width: 18px;
@@ -715,12 +756,12 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-animation: fadeIn 1s 1s both;
-          animation: fadeIn 1s 1s both;
+  -webkit-animation: fadeIn 0.5s 0.5s both;
+          animation: fadeIn 0.5s 0.5s both;
 }
 .profile-description__content.fade-out {
-  -webkit-animation: fadeOut 1s both;
-          animation: fadeOut 1s both;
+  -webkit-animation: fadeOut 0.5s both;
+          animation: fadeOut 0.5s both;
 }
 .profile-description__content__text {
   display: -webkit-box;
@@ -862,12 +903,12 @@ p {
   height: 120px;
 }
 .profile-picture.grow-in {
-  -webkit-animation: PicContainerGrowIn 1s both;
-          animation: PicContainerGrowIn 1s both;
+  -webkit-animation: PicContainerGrowIn 0.5s both;
+          animation: PicContainerGrowIn 0.5s both;
 }
 .profile-picture.grow-out {
-  -webkit-animation: PicContainerGrowOut 1s 1s both;
-          animation: PicContainerGrowOut 1s 1s both;
+  -webkit-animation: PicContainerGrowOut 0.5s 0.5s both;
+          animation: PicContainerGrowOut 0.5s 0.5s both;
 }
 .profile-picture.open {
   width: 100%;
@@ -883,12 +924,12 @@ p {
   border-radius: 90px;
 }
 .profile-picture__img.grow-in {
-  -webkit-animation: PicGrowIn 1s both;
-          animation: PicGrowIn 1s both;
+  -webkit-animation: PicGrowIn 0.5s both;
+          animation: PicGrowIn 0.5s both;
 }
 .profile-picture__img.grow-out {
-  -webkit-animation: PicGrowOut 1s 1s both;
-          animation: PicGrowOut 1s 1s both;
+  -webkit-animation: PicGrowOut 0.5s 0.5s both;
+          animation: PicGrowOut 0.5s 0.5s both;
 }
 .profile-picture__button {
   position: absolute;
@@ -918,12 +959,12 @@ p {
   background-color: #000;
 }
 .profile-picture__button.grow-in {
-  -webkit-animation: ButtonGrowIn 1s both;
-          animation: ButtonGrowIn 1s both;
+  -webkit-animation: ButtonGrowIn 0.5s both;
+          animation: ButtonGrowIn 0.5s both;
 }
 .profile-picture__button.grow-out {
-  -webkit-animation: ButtonGrowOut 1s 1s both;
-          animation: ButtonGrowOut 1s 1s both;
+  -webkit-animation: ButtonGrowOut 0.5s 0.5s both;
+          animation: ButtonGrowOut 0.5s 0.5s both;
 }
 
 @-webkit-keyframes PicContainerGrowIn {
@@ -1061,30 +1102,30 @@ p {
   z-index: 100;
 }
 .about.grow-in {
-  -webkit-animation: AboutGrowIn 1s both;
-          animation: AboutGrowIn 1s both;
+  -webkit-animation: AboutGrowIn 0.5s both;
+          animation: AboutGrowIn 0.5s both;
 }
 .about.grow-out {
-  -webkit-animation: AboutGrowOut 1s 1s both;
-          animation: AboutGrowOut 1s 1s both;
+  -webkit-animation: AboutGrowOut 0.5s 0.5s both;
+          animation: AboutGrowOut 0.5s 0.5s both;
 }
 
 @-webkit-keyframes AboutGrowIn {
   100% {
     height: 100vh;
-    padding-top: 100px;
+    padding-top: 10vh;
   }
 }
 
 @keyframes AboutGrowIn {
   100% {
     height: 100vh;
-    padding-top: 100px;
+    padding-top: 10vh;
   }
 }
 @-webkit-keyframes AboutGrowOut {
   0% {
-    padding-top: 100px;
+    padding-top: 10vh;
   }
   100% {
     height: auto;
@@ -1093,7 +1134,7 @@ p {
 }
 @keyframes AboutGrowOut {
   0% {
-    padding-top: 100px;
+    padding-top: 10vh;
   }
   100% {
     height: auto;
@@ -1127,12 +1168,12 @@ p {
   background: #EC6836;
 }
 .close.fade-in {
-  -webkit-animation: CloseFadeIn 1s both;
-          animation: CloseFadeIn 1s both;
+  -webkit-animation: CloseFadeIn 0.5s both;
+          animation: CloseFadeIn 0.5s both;
 }
 .close.fade-out {
-  -webkit-animation: CloseFadeOut 1s both;
-          animation: CloseFadeOut 1s both;
+  -webkit-animation: CloseFadeOut 0.5s both;
+          animation: CloseFadeOut 0.5s both;
 }
 .close__button {
   position: absolute;

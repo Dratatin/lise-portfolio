@@ -6,4 +6,29 @@
     left: 0;
     top: 0;
     z-index: 50;
+    &.appears {
+        animation: appears $anim-duration both;
+    }
+    &.disappears {
+        animation: disappears $anim-duration $anim-duration both;
+    }
+}
+
+@keyframes appears {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes disappears {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }

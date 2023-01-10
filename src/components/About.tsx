@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from "react"
 import useTheme from "../utils/themeContext"
 import ProfilePicture from "./ProfilePicture";
 import ProfileDescription from "./ProfileDescription";
+import ShadedBackground from "../layout/ShadedBackground";
 import Close from "./Close";
 
 const About: FC = () => {
@@ -23,6 +24,10 @@ const About: FC = () => {
 
     return (
         <>
+            {openInterval ?
+                <ShadedBackground />
+            : null
+            }
             <div className={`about ${state.about.opened === true ? "grow-in" : state.about.opened === false ? "grow-out" : ""}`}>
                 <ProfilePicture />
                 {openInterval ?

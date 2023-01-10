@@ -11,10 +11,10 @@
         background: themed('tertiary');
     }
     &.fade-in {
-        animation: CloseFadeIn 1s both;
+        animation: CloseFadeIn $anim-duration both;
     }
     &.fade-out {
-        animation: CloseFadeOut 1s both;
+        animation: CloseFadeOut $anim-duration both;
     }
     &__button {
         position: absolute;

@@ -7,19 +7,19 @@
     &--left {
         left: 0;
         &.slide-in {
-            animation: SlideInLeft 1s both;
+            animation: SlideInLeft $anim-duration both;
         }
         &.slide-out {
-            animation: SlideOutLeft 1s 1s both;
+            animation: SlideOutLeft $anim-duration $anim-duration both;
         }
     }
     &--right {
         right: 0;
         &.slide-in {
-            animation: SlideInRight 1s both;
+            animation: SlideInRight $anim-duration both;
         }
         &.slide-out {
-            animation: SlideOutRight 1s 1s both;
+            animation: SlideOutRight $anim-duration $anim-duration both;
         }
     }
     &__button {

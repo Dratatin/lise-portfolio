@@ -10,9 +10,9 @@
         overflow: auto;
         height: 40vh;
         display: flex;
-        animation: fadeIn 1s 1s both;
+        animation: fadeIn $anim-duration $anim-duration both;
         &.fade-out {
-            animation: fadeOut 1s both;
+            animation: fadeOut $anim-duration both;
         }
         &__text {
             display: flex;

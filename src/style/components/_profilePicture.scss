@@ -4,10 +4,10 @@
     width: 120px;
     height: 120px;
     &.grow-in {
-        animation: PicContainerGrowIn 1s both;
+        animation: PicContainerGrowIn $anim-duration both;
     }
     &.grow-out {
-        animation: PicContainerGrowOut 1s 1s both;
+        animation: PicContainerGrowOut $anim-duration $anim-duration both;
     }
     &.open {
         width: 100%;
@@ -20,10 +20,10 @@
         @include box-shadow;
         border-radius: 90px;
         &.grow-in {
-            animation: PicGrowIn 1s both;
+            animation: PicGrowIn $anim-duration both;
         }
         &.grow-out {
-            animation: PicGrowOut 1s 1s both;
+            animation: PicGrowOut $anim-duration $anim-duration both;
         }
     }
     &__button {
@@ -40,10 +40,10 @@
             background-color: themed(secondary);
         }
         &.grow-in {
-            animation: ButtonGrowIn 1s both;
+            animation: ButtonGrowIn $anim-duration both;
         }
         &.grow-out {
-            animation: ButtonGrowOut 1s 1s both;
+            animation: ButtonGrowOut $anim-duration $anim-duration both;
         }
     }
 }
