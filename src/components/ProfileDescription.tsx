@@ -23,7 +23,7 @@ const ProfileDescription: FC = () => {
                     <a className={`profile-description__content__networks__cv theme--${state.theme}`}>Mon CV</a>
                     <a className={`profile-description__content__networks__link theme--${state.theme}`} href="#">Be</a>
                 </div>
-            </div>           
+            </div>   
         </div>
     )
 }

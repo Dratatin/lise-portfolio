@@ -3,7 +3,6 @@ import useTheme from "../utils/themeContext"
 import ProfilePicture from "./ProfilePicture";
 import ProfileDescription from "./ProfileDescription";
 import ShadedBackground from "../layout/ShadedBackground";
-import Close from "./Close";
 
 const About: FC = () => {
     const { state } = useTheme();
@@ -35,10 +34,6 @@ const About: FC = () => {
                     : null
                 }
             </div>
-            {openInterval ?
-                <Close/>
-                : null
-            }
         </>
     )
 }
