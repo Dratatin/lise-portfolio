@@ -4,9 +4,13 @@ import CrossButton from "./CrossButton";
 import avatarPrimary from "../assets/avatarPrimary.jpg";
 import avatarSecondary from "../assets/avatarSecondary.png";
 
+export interface ProfilePictureProps {
+    className?: string,
+}
 
-const ProfilePicture: FC = () => {
-    const { setAboutOpened, state } = useTheme();
+
+const ProfilePicture: FC<ProfilePictureProps> = ({className}) => {
+    const { state } = useTheme();
     const [profile, setProfile] = useState(avatarPrimary);
 
     useEffect(()=> {
@@ -29,10 +33,8 @@ const ProfilePicture: FC = () => {
     },[state.theme])
 
     return (
-        <div className={`profile-picture ${state.about.opened === true ? "grow-in" : state.about.opened === false ? "grow-out" : ""}`}>
-            <img className={`profile-picture__img ${state.about.opened === true ? "grow-in" : state.about.opened === false ? "grow-out" : ""}`} src={profile} alt="image de profile de sorcière"></img>
-            <CrossButton type="more" onClick={() => setAboutOpened(true)} className={`${state.about.opened ? "hide" : ""}`}/>
-            <CrossButton type="close" onClick={() => setAboutOpened(false)} className={`${!state.about.opened ? "hide" : ""}`}/>
+        <div className={`profile-picture ${className}`}>
+            <img className="profile-picture__img" src={profile} alt="image de profile de sorcière"></img>
         </div>
     )
 }

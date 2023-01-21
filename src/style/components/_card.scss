@@ -2,14 +2,19 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    min-width: 250px;
+    flex: 1;
     &__link {
         border-radius: $border-radius;
         overflow: hidden;
         position: relative;
         cursor: pointer;
+        flex: 1;
         &__img {
             display: block;
             width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         &__tags {
             position: absolute;

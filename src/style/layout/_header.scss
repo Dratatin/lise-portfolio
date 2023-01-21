@@ -3,9 +3,12 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 2.5rem 2.5rem 8rem 2.5rem;
+    padding: 2.5rem;
     gap: 1rem;
     @include themify() {
         background-color: themed(primary);
+    }
+    &__picture-container {
+        position: relative;
     }
 }

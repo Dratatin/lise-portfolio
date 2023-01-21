@@ -1,10 +1,13 @@
 import { FC, useEffect } from "react";
 import useTheme from "../utils/themeContext";
 import ThemeChoices from "../components/ThemeChoices";
+import ShadedBackground from "./ShadedBackground";
+import ProfilePicture from "../components/ProfilePicture";
 import About from "../components/About";
+import CrossButton from "../components/CrossButton";
 
 const Header: FC = () => {
-    const { state } = useTheme();
+    const { state, setAboutOpened } = useTheme();
 
     useEffect(() => {
         if (state.about.opened === true) {
@@ -18,8 +21,16 @@ const Header: FC = () => {
     return (
         <header className={`header theme--${state.theme}`}>
             <ThemeChoices themes={["primary", "secondary"]} direction="left" />
-            <About />
+                <div className="header__picture-container">
+                    {!state.about.opened &&
+                        <ProfilePicture />
+                    }
+                    <CrossButton type="more" onClick={() => setAboutOpened(true)}/>
+                </div>
             <ThemeChoices themes={["tertiary", "quaternary"]} direction="right" />
+            {state.about.opened &&
+                <About />
+            }
         </header>
     )
 }

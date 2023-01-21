@@ -1,38 +1,20 @@
-import { FC, useEffect, useState } from "react"
-import useTheme from "../utils/themeContext"
+import { FC } from "react"
 import ProfilePicture from "./ProfilePicture";
-import ProfileDescription from "./ProfileDescription";
+import AboutDescription from "./AboutDescription";
 import ShadedBackground from "../layout/ShadedBackground";
+import CrossButton from "./CrossButton";
+import useTheme from "../utils/themeContext";
 
-const About: FC = () => {
-    const { state } = useTheme();
-    const [openInterval, setOpenInterval] = useState(false); 
+const About: FC = () => {  
+    const { setAboutOpened } = useTheme();
     
-    // Give the possibility to have animation before remove DOMelement
-    useEffect(() => {
-        if (state.about.opened) {
-            setOpenInterval(true)
-        }
-        else {
-            const interval = setInterval(() => {
-                setOpenInterval(false)
-            }, 1000);
-            return () => clearInterval(interval);
-        }
-    },[state.about.opened])
-
     return (
         <>
-            {openInterval ?
-                <ShadedBackground />
-            : null
-            }
-            <div className={`about ${state.about.opened === true ? "grow-in" : state.about.opened === false ? "grow-out" : ""}`}>
-                <ProfilePicture />
-                {openInterval ?
-                    <ProfileDescription />
-                    : null
-                }
+            <ShadedBackground />
+            <div className="about">
+                <CrossButton type="close" onClick={() => setAboutOpened(false)}/>
+                <ProfilePicture className="bigger" />
+                <AboutDescription />
             </div>
         </>
     )
