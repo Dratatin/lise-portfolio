@@ -1,15 +1,10 @@
 import { FC, useState, useEffect } from "react"
 import useTheme from "../utils/themeContext"
-import CrossButton from "./CrossButton";
 import avatarPrimary from "../assets/avatarPrimary.jpg";
 import avatarSecondary from "../assets/avatarSecondary.png";
 
-export interface ProfilePictureProps {
-    className?: string,
-}
 
-
-const ProfilePicture: FC<ProfilePictureProps> = ({className}) => {
+const ProfilePicture: FC = () => {
     const { state } = useTheme();
     const [profile, setProfile] = useState(avatarPrimary);
 
@@ -33,9 +28,7 @@ const ProfilePicture: FC<ProfilePictureProps> = ({className}) => {
     },[state.theme])
 
     return (
-        <div className={`profile-picture ${className}`}>
-            <img className="profile-picture__img" src={profile} alt="image de profile de sorcière"></img>
-        </div>
+        <img className="profile-picture" src={profile} alt="image de profile de sorcière"></img>
     )
 }
 

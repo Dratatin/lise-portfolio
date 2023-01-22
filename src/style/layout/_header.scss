@@ -8,7 +8,11 @@
     @include themify() {
         background-color: themed(primary);
     }
-    &__picture-container {
+    &__picture {
         position: relative;
+        width: 120px;
+        height: 120px;
+        border-radius: 90px;
+        overflow: hidden;
     }
 }

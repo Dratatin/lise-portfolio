@@ -12,8 +12,10 @@ const About: FC = () => {
         <>
             <ShadedBackground />
             <div className="about">
-                <CrossButton type="close" onClick={() => setAboutOpened(false)}/>
-                <ProfilePicture className="bigger" />
+                <div className="about__picture">
+                    <ProfilePicture />
+                    <CrossButton type="close" onClick={() => setAboutOpened(false)}/>
+                </div>
                 <AboutDescription />
             </div>
         </>

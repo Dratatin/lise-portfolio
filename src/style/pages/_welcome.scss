@@ -6,6 +6,8 @@
     justify-content: center;
     gap: 2rem;
     padding: $layout-padding;
+    position: relative;
+    overflow: hidden;
     @include themify() {
         color: themed('hightlight-color')
     }
@@ -42,6 +44,15 @@
         border-radius: 3rem;
         @include themify() {
             border: 2px solid themed('hightlight-color');
+        }
+    }
+    &__decorated-icon {
+        position: absolute;
+        top: 10%;
+        right: 20%;
+        cursor: grab;
+        &.dragging {
+            cursor: grabbing;
         }
     }
 }

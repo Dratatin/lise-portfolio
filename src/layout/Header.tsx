@@ -21,10 +21,8 @@ const Header: FC = () => {
     return (
         <header className={`header theme--${state.theme}`}>
             <ThemeChoices themes={["primary", "secondary"]} direction="left" />
-                <div className="header__picture-container">
-                    {!state.about.opened &&
-                        <ProfilePicture />
-                    }
+                <div className="header__picture">
+                    <ProfilePicture />
                     <CrossButton type="more" onClick={() => setAboutOpened(true)}/>
                 </div>
             <ThemeChoices themes={["tertiary", "quaternary"]} direction="right" />

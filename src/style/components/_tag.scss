@@ -11,12 +11,22 @@
     }
     &__label {
         padding: 0.5rem;
-        display: flex;
+        display: inline-block;
+        text-align: center;
         border-radius: $border-radius;
         text-transform: capitalize;
         cursor: pointer;
         @include themify() {
             outline: 1px solid themed('hightlight-color');
         }
+        &::after {
+            display: block;
+            content: attr(title);
+            font-weight: 600;
+            height: 1px;
+            color: transparent;
+            overflow: hidden;
+            visibility: hidden;
+          }
     }
 }

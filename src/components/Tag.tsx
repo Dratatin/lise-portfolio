@@ -12,7 +12,7 @@ const Tag: FC<Props> = ({ value, name }) => {
     return (
         <div className="tag">
             <input type="checkbox" value={value} id={value} name={name} className="tag__input"></input>
-            <label htmlFor={value} className={`tag__label theme--${state.theme}`}>{value}</label>
+            <label htmlFor={value} title={value} className={`tag__label theme--${state.theme}`}>{value}</label>
         </div>
     )
 }

@@ -14,7 +14,7 @@ const ThemeChoices: FC<ThemeChoicesProps> = ({themes, direction}) => {
     }
 
     return (
-        <div className={`theme-choices theme-choices--${direction} ${state.about.opened === true ? "slide-in" : state.about.opened === false ? "slide-out" : ""}`} onChange={handleChange}>
+        <div className={`theme-choices theme-choices--${direction}`} onChange={handleChange}>
             {themes.map((theme, index) => 
                 <label key={index} className="theme-choices__button">
                     <input className={`theme--${theme}`} type="radio" id={theme} name="themes" value={theme} defaultChecked={state.theme === theme}></input>
