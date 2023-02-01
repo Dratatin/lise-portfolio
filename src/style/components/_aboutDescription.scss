@@ -7,10 +7,16 @@
     gap: 30px;
     overflow: auto;
     display: flex;
+    justify-content: space-between;
+    flex: 1;
+    @media screen and (min-width: 768px) {
+        border-radius: 0 10px 10px 0;
+    }
     &__text {
         display: flex;
         flex-direction: column;
         gap: 10px;
+        margin: auto 0px;
         &__title {
             @include themify() {
                 color: themed(primary);

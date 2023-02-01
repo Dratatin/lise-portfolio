@@ -42,17 +42,38 @@
         cursor: pointer;
         padding: 0.5rem 1.5rem;
         border-radius: 3rem;
+        display: flex;
+        gap: 10px;
         @include themify() {
             border: 2px solid themed('hightlight-color');
         }
     }
-    &__decorated-icon {
+    &__help {
+        @include themify() {
+            color: themed('smooth-color');
+        }
+        &__link {
+            font-style: italic;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+    &__drag-icon {
         position: absolute;
-        top: 10%;
-        right: 20%;
         cursor: grab;
-        &.dragging {
-            cursor: grabbing;
+        &--key {
+            bottom: 10%;
+            left: 20%;
+            &.dragging {
+                cursor: grabbing;
+            }
+        }
+        &--star {
+            top: 10%;
+            right: 20%;
+            &.dragging {
+                cursor: grabbing;
+            }
         }
     }
 }

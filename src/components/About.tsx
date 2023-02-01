@@ -12,11 +12,13 @@ const About: FC = () => {
         <>
             <ShadedBackground />
             <div className="about">
-                <div className="about__picture">
-                    <ProfilePicture />
+                <div className="about__wrapper">
+                    <div className="about__wrapper__picture">
+                        <ProfilePicture />
+                    </div>
+                    <AboutDescription />
                     <CrossButton type="close" onClick={() => setAboutOpened(false)}/>
                 </div>
-                <AboutDescription />
             </div>
         </>
     )
