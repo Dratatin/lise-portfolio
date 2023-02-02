@@ -8,10 +8,18 @@ button, ul, li, a, input[type=radio], input[type=checkbox] {
     all: unset;
 }
 
+/* Remove weird blue background on click on mobile */
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
 #root {
     display: flex;
     min-height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
-    min-height: calc(var(--windowInnerHeight, 1vh) * 100);
     flex-direction: column;
 }
 

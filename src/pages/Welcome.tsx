@@ -12,10 +12,9 @@ import IosIcon from "../components/IosIcon"
 
 const Welcome: FC = () => {
     const { state } = useTheme()
-    const [mousePos, setMousePos] = useState({x:0,y:0})
+    // const [mousePos, setMousePos] = useState({x:0,y:0})
     const [dragging, setDragging] = useState(false)
     const buttonRef = useRef<HTMLButtonElement | null>(null)
-    const [keyDragging, setKeyDragging] = useState<null | Boolean>(null)
     const [enterButton, setEnterButton] = useState({
         buttonState: "locked",
         pos: {
@@ -45,10 +44,9 @@ const Welcome: FC = () => {
     const [{keyX, keyY}, keyApi] = useSpring(() => ({keyX: 0, keyY: 0}))
     const bindDragKey = useDrag(({offset, active}) => 
         {
-            if (active === false) {
-                handleKeyDrop();
-            }
-            setKeyDragging(active)
+            // if (active === true) {
+            //     handleKeyDrop();
+            // }
             setDragging(active)
             keyApi.start({
                 keyX: offset[0],
@@ -57,7 +55,8 @@ const Welcome: FC = () => {
         },
     )
 
-    const handleKeyDrop = () => {
+    const handleKeyDrop = (event: any) => {
+        const mousePos = { x: event.clientX, y: event.clientY }
         if ((mousePos.x > enterButton.pos.left && mousePos.x < enterButton.pos.right) && (mousePos.y > enterButton.pos.top && mousePos.y < enterButton.pos.bottom)) {
             setEnterButton({
                 ...enterButton,
@@ -85,17 +84,11 @@ const Welcome: FC = () => {
             })
         };
 
-        const handleMouseMove = (event: MouseEvent) => {
-            setMousePos({ x: event.clientX, y: event.clientY });
-        };
-
-        window.addEventListener('mousemove', handleMouseMove);
         window.addEventListener('resize', handleResize);
         handleResize() // getEnterButtonPos on first render
 
         return () => {
           window.removeEventListener('resize', handleResize);
-          window.removeEventListener('mousemove', handleMouseMove)
         }
     }, [])
 
@@ -104,7 +97,7 @@ const Welcome: FC = () => {
             <animated.div style={{x:starX, y:starY}} {...bindDragStar()} className={`welcome__drag-icon welcome__drag-icon--star ${dragging && "dragging"}`}>
                 <Star />
             </animated.div>
-            <animated.div style={{x:keyX, y:keyY}} {...bindDragKey()} className={`welcome__drag-icon welcome__drag-icon--key ${dragging && "dragging"}`}>
+            <animated.div style={{x:keyX, y:keyY}} {...bindDragKey()} className={`welcome__drag-icon welcome__drag-icon--key ${dragging && "dragging"}`} onClick={handleKeyDrop}>
                 <Key />
             </animated.div>
             <p className={`welcome__content theme--${state.theme}`}>
@@ -113,7 +106,7 @@ const Welcome: FC = () => {
                 Je suis Lise, une graphiste
                 et directrice artistique, bienvenue sur mon portfolio.
             </p>
-            <button ref={buttonRef} className={`welcome__button theme--${state.theme}`} onClick={handleClick}>
+            <button ref={buttonRef} className={`welcome__button theme--${state.theme}`} onClick={handleClick} disabled={enterButton.buttonState === "locked" ? true : false}>
                 Entrer 
                 {enterButton.buttonState === "locked" ?
                     <IosIcon src={Locked}/>

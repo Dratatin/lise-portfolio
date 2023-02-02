@@ -6,6 +6,7 @@
             @include themify() {
                 color: themed('primary');
                 background: themed('secondary');
+                border: 1px solid themed('secondary');
             }
         }
     }
@@ -15,9 +16,10 @@
         text-align: center;
         border-radius: $border-radius;
         text-transform: capitalize;
+        user-select: none;
         cursor: pointer;
         @include themify() {
-            outline: 1px solid themed('hightlight-color');
+            border: 1px solid themed('hightlight-color');
         }
         &::after {
             display: block;

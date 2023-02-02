@@ -6,8 +6,8 @@
     border-top: 1px solid #000;
     font-size: 14px;
     @include themify() {
-        background-color: themed(primary);
+        background-color: darken(themed(primary), 5%);
         color: themed(hightlight-color);
-        border-top: 1px solid darken(themed(primary), 15%);
+        border-top: 1px solid lighten(themed(primary), 5%);
     }
 }

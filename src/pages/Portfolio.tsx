@@ -1,7 +1,8 @@
-import { ChangeEvent, FC, useEffect, useState } from "react";
+import { ChangeEvent, FC, useEffect, useState, useRef } from "react";
 import datas from "../datas/projects.json";
 import Card from "../components/Card";
 import Tag from "../components/Tag";
+import { useOnLoadImages } from "../utils/useOnLoadImages";
 
 const getTags = () => {
     let tags: string[] = [];
@@ -18,6 +19,9 @@ const Portfolio: FC = () => {
     const tags = getTags()
     const [projects, setProjects] = useState(datas)
     const [filters, setFilters] = useState<string[]>([])
+    const wrapperRef = useRef<HTMLDivElement>(null);
+
+    const imagesLoaded = useOnLoadImages(wrapperRef);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         if (filters.some(filter => filter === e.target.value)) {
@@ -45,7 +49,7 @@ const Portfolio: FC = () => {
                     <Tag key={`t-${index}`} value={elem} name="tag" />
                 ))}
             </div>
-            <div className="portfolio__projects">
+            <div className="portfolio__projects" ref={wrapperRef} style={imagesLoaded ? {} : { display: 'none' }}>
                 {projects.length > 0 ?
                     projects.map((elem, index) => (
                         <Card key={`p-${index}`} title={elem.title} preview={elem.preview} subtitle={elem.subtitle} date={elem.date} tags={elem.tags} id={elem.id} />
