@@ -3,6 +3,7 @@ import useTheme from "../utils/themeContext";
 import { Link } from "react-router-dom"
 
 type Props = {
+    index: number;
     title: string,
     preview: string,
     subtitle: string,
@@ -11,11 +12,11 @@ type Props = {
     id: number,
 }
 
-const Card: FC<Props> = ({ title, preview, subtitle, date, tags, id }) => {
+const Card: FC<Props> = ({ index, title, preview, subtitle, date, tags, id }) => {
     const { state } = useTheme();
 
     return (
-        <article className="card">
+        <article className="card" style={{animationDelay: `${index * 0.5}s`}}>
             <Link to={`/portfolio/project/${id}`} className="card__link">
                 <img 
                     className="card__link__img" 

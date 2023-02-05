@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from "react"
+import React, { FC, useEffect, useRef, useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import useTheme from "../utils/themeContext"
 import { ReactComponent as Star} from "../assets/decoration/star.svg"
@@ -8,11 +8,11 @@ import { animated, useSpring } from "@react-spring/web"
 import Locked from "../assets/icons/locked.png"
 import Unlocked from "../assets/icons/unlocked.png"
 import IosIcon from "../components/IosIcon"
+import useDeviceType from "../utils/useDeviceType"
 
 
 const Welcome: FC = () => {
     const { state } = useTheme()
-    // const [mousePos, setMousePos] = useState({x:0,y:0})
     const [dragging, setDragging] = useState(false)
     const buttonRef = useRef<HTMLButtonElement | null>(null)
     const [enterButton, setEnterButton] = useState({
@@ -24,11 +24,13 @@ const Welcome: FC = () => {
             right: 0,
         }
     });
+    const deviceType = useDeviceType()
 
     let navigate = useNavigate();
     const handleClick = () => {
         navigate("/portfolio")
     }
+
 
     const [{starX, starY}, starApi] = useSpring(() => ({starX: 0, starY: 0}))
     const bindDragStar = useDrag(({offset, active}) => 
@@ -44,9 +46,6 @@ const Welcome: FC = () => {
     const [{keyX, keyY}, keyApi] = useSpring(() => ({keyX: 0, keyY: 0}))
     const bindDragKey = useDrag(({offset, active}) => 
         {
-            // if (active === true) {
-            //     handleKeyDrop();
-            // }
             setDragging(active)
             keyApi.start({
                 keyX: offset[0],
@@ -55,8 +54,19 @@ const Welcome: FC = () => {
         },
     )
 
-    const handleKeyDrop = (event: any) => {
+
+    // Manage HandleKeyDrop and compare it with mouse / touch pos
+    const getMousePos = (event: React.MouseEvent<HTMLDivElement>) => {
         const mousePos = { x: event.clientX, y: event.clientY }
+        handleKeyDrop(mousePos)
+    }
+
+    const getTouchPos = (event: React.TouchEvent<HTMLDivElement>) => {
+        const mousePos = { x: event.changedTouches[0].clientX, y: event.changedTouches[0].clientY }
+        handleKeyDrop(mousePos)
+    }
+
+    const handleKeyDrop = (mousePos : {x:number, y:number}) => {
         if ((mousePos.x > enterButton.pos.left && mousePos.x < enterButton.pos.right) && (mousePos.y > enterButton.pos.top && mousePos.y < enterButton.pos.bottom)) {
             setEnterButton({
                 ...enterButton,
@@ -65,6 +75,7 @@ const Welcome: FC = () => {
         }
     }
     
+
     const getDOMelementPos = (DOMelement: HTMLElement) => {
         const DOMelementPos = DOMelement.getBoundingClientRect()
         return DOMelementPos
@@ -97,7 +108,13 @@ const Welcome: FC = () => {
             <animated.div style={{x:starX, y:starY}} {...bindDragStar()} className={`welcome__drag-icon welcome__drag-icon--star ${dragging && "dragging"}`}>
                 <Star />
             </animated.div>
-            <animated.div style={{x:keyX, y:keyY}} {...bindDragKey()} className={`welcome__drag-icon welcome__drag-icon--key ${dragging && "dragging"}`} onClick={handleKeyDrop}>
+            <animated.div 
+                style={{x:keyX, y:keyY}} 
+                {...bindDragKey()} 
+                className={`welcome__drag-icon welcome__drag-icon--key ${dragging && "dragging"}`} 
+                onClick={deviceType === "desktop" ? getMousePos : () => {}} 
+                onTouchEnd={deviceType === "ios" || "android" ? getTouchPos : () => {}}
+            >
                 <Key />
             </animated.div>
             <p className={`welcome__content theme--${state.theme}`}>
@@ -114,7 +131,7 @@ const Welcome: FC = () => {
                     <IosIcon src={Unlocked}/>
                 }
             </button>
-            <span className={`welcome__help theme--${state.theme}`}>Attrapez la clé ! <Link className="welcome__help__link" to="/portfolio"> ...ou forcer le passage</Link> 🚪</span>
+            <span className={`welcome__help theme--${state.theme}`}>Attrapez la clé ! <Link className="welcome__help__link" to="/portfolio"> ...ou forcer le <span className="now-wrap">passage 🚪</span></Link></span>
         </section>
     )
 }

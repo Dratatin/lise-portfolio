@@ -72,10 +72,17 @@ p {
 }
 .header__picture {
   position: relative;
+}
+.header__picture__container {
   width: 120px;
   height: 120px;
   border-radius: 90px;
   overflow: hidden;
+}
+.header__picture__button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 .main {
@@ -301,6 +308,14 @@ p {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  -webkit-animation-name: appear;
+          animation-name: appear;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
 }
 .card__link {
   border-radius: 0.7rem;
@@ -416,6 +431,31 @@ p {
   font-weight: bold;
 }
 
+@-webkit-keyframes appear {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
 .tag__input:checked + .tag__label {
   outline: 0px;
   font-weight: 600;
@@ -725,7 +765,7 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 .aboutDescription__networks__link {
   width: 15px;
@@ -742,39 +782,45 @@ p {
           justify-content: center;
   padding: 0.5rem;
   color: #fff;
+  border: 2px solid;
 }
 .aboutDescription__networks__link.theme--primary {
   background: #4D2EAA;
+  border-color: #4D2EAA;
 }
 .aboutDescription__networks__link.theme--secondary {
   background: #14533D;
+  border-color: #14533D;
 }
 .aboutDescription__networks__link.theme--tertiary {
   background: #4D2EAA;
+  border-color: #4D2EAA;
 }
 .aboutDescription__networks__link.theme--quaternary {
   background: #303030;
+  border-color: #303030;
 }
 .aboutDescription__networks__cv {
   width: auto;
   padding: 0.5rem 1rem;
   border-radius: 30px;
+  border: 2px solid;
 }
 .aboutDescription__networks__cv.theme--primary {
   color: #4D2EAA;
-  outline: 2px solid #4D2EAA;
+  border-color: #4D2EAA;
 }
 .aboutDescription__networks__cv.theme--secondary {
   color: #14533D;
-  outline: 2px solid #14533D;
+  border-color: #14533D;
 }
 .aboutDescription__networks__cv.theme--tertiary {
   color: #4D2EAA;
-  outline: 2px solid #4D2EAA;
+  border-color: #4D2EAA;
 }
 .aboutDescription__networks__cv.theme--quaternary {
   color: #303030;
-  outline: 2px solid #303030;
+  border-color: #303030;
 }
 
 .profile-picture {
@@ -829,96 +875,32 @@ p {
     border-radius: 10px 0 0 10px;
   }
 }
-
-.cross-button {
+.about__wrapper__button {
   position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.round-button {
   width: 38px;
   height: 38px;
   border-radius: 38px;
   z-index: 1;
   cursor: pointer;
 }
-.cross-button.theme--primary {
+.round-button.theme--primary {
   background: #f08b65;
 }
-.cross-button.theme--secondary {
+.round-button.theme--secondary {
   background: #f26582;
 }
-.cross-button.theme--tertiary {
+.round-button.theme--tertiary {
   background: #f08b65;
 }
-.cross-button.theme--quaternary {
+.round-button.theme--quaternary {
   background: #f08b65;
 }
-.cross-button.more {
-  bottom: 0;
-  right: 0;
-}
-.cross-button.more.theme--primary {
-  background: #F4B940;
-}
-.cross-button.more.theme--secondary {
-  background: #4D9A7F;
-}
-.cross-button.more.theme--tertiary {
-  background: #E0F3D1;
-}
-.cross-button.more.theme--quaternary {
-  background: #000;
-}
-.cross-button.more .cross-button__icon.theme--primary:before, .cross-button.more .cross-button__icon.theme--primary:after {
-  background: #4D2EAA;
-}
-.cross-button.more .cross-button__icon.theme--secondary:before, .cross-button.more .cross-button__icon.theme--secondary:after {
-  background: #14533D;
-}
-.cross-button.more .cross-button__icon.theme--tertiary:before, .cross-button.more .cross-button__icon.theme--tertiary:after {
-  background: #4D2EAA;
-}
-.cross-button.more .cross-button__icon.theme--quaternary:before, .cross-button.more .cross-button__icon.theme--quaternary:after {
-  background: #303030;
-}
-.cross-button.more .cross-button__icon:before {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
-.cross-button.close {
-  top: 20px;
-  right: 20px;
-}
-.cross-button.close.theme--primary {
-  background: #f08b65;
-}
-.cross-button.close.theme--secondary {
-  background: #f26582;
-}
-.cross-button.close.theme--tertiary {
-  background: #f08b65;
-}
-.cross-button.close.theme--quaternary {
-  background: #f08b65;
-}
-.cross-button.close .cross-button__icon.theme--primary:before, .cross-button.close .cross-button__icon.theme--primary:after {
-  background: #fff;
-}
-.cross-button.close .cross-button__icon.theme--secondary:before, .cross-button.close .cross-button__icon.theme--secondary:after {
-  background: #fff;
-}
-.cross-button.close .cross-button__icon.theme--tertiary:before, .cross-button.close .cross-button__icon.theme--tertiary:after {
-  background: #fff;
-}
-.cross-button.close .cross-button__icon.theme--quaternary:before, .cross-button.close .cross-button__icon.theme--quaternary:after {
-  background: #fff;
-}
-.cross-button.close .cross-button__icon:before {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-.cross-button.close .cross-button__icon:after {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}
-.cross-button__icon {
+.round-button__icon {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -928,13 +910,64 @@ p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  gap: 2px;
 }
-.cross-button__icon:before, .cross-button__icon:after {
+.round-button__icon__bullet {
+  width: 5px;
+  height: 5px;
+  border-radius: 5px;
+  background-color: white;
+}
+.round-button--more.theme--primary {
+  background: #F4B940;
+}
+.round-button--more.theme--secondary {
+  background: #4D9A7F;
+}
+.round-button--more.theme--tertiary {
+  background: #E0F3D1;
+}
+.round-button--more.theme--quaternary {
+  background: #000;
+}
+.round-button--close.theme--primary {
+  background: #f08b65;
+}
+.round-button--close.theme--secondary {
+  background: #f26582;
+}
+.round-button--close.theme--tertiary {
+  background: #f08b65;
+}
+.round-button--close.theme--quaternary {
+  background: #f08b65;
+}
+.round-button--close .round-button__icon.theme--primary:before, .round-button--close .round-button__icon.theme--primary:after {
+  background: #fff;
+}
+.round-button--close .round-button__icon.theme--secondary:before, .round-button--close .round-button__icon.theme--secondary:after {
+  background: #fff;
+}
+.round-button--close .round-button__icon.theme--tertiary:before, .round-button--close .round-button__icon.theme--tertiary:after {
+  background: #fff;
+}
+.round-button--close .round-button__icon.theme--quaternary:before, .round-button--close .round-button__icon.theme--quaternary:after {
+  background: #fff;
+}
+.round-button--close .round-button__icon:before, .round-button--close .round-button__icon:after {
   content: "";
   position: absolute;
   height: 18px;
   width: 2px;
   border-radius: 2px;
+}
+.round-button--close .round-button__icon:before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.round-button--close .round-button__icon:after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
 .ios-icon {
@@ -956,13 +989,14 @@ p {
           flex-direction: column;
   gap: 2rem;
   padding: 0.5rem 3rem 2rem 3rem;
+  overflow: hidden;
 }
 .portfolio__projects {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 3rem;
 }
-.portfolio__projects__empty {
+.portfolio__empty {
   text-align: center;
 }
 .portfolio__tags {
@@ -1092,6 +1126,9 @@ p {
 .welcome__button.theme--quaternary {
   border: 2px solid #fff;
 }
+.welcome__help {
+  text-align: center;
+}
 .welcome__help.theme--primary {
   color: #8368d6;
 }
@@ -1108,6 +1145,9 @@ p {
   font-style: italic;
   text-decoration: underline;
   cursor: pointer;
+}
+.welcome__help__link .now-wrap {
+  white-space: nowrap;
 }
 .welcome__drag-icon {
   z-index: 999;

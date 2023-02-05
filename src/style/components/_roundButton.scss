@@ -1,0 +1,52 @@
+.round-button {
+    width: 38px;
+    height: 38px;
+    border-radius: 38px;
+    z-index: 1;
+    cursor: pointer;
+    @include themify() {
+        background: lighten(themed('tertiary'), 10%);
+    }
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        &__bullet {
+            width: 5px;
+            height: 5px;
+            border-radius: 5px;
+            background-color: white;
+        }
+    }
+    &--more {
+        @include themify() {
+            background: themed('secondary');
+        }
+    }
+    &--close {
+        @include themify() {
+            background: lighten(themed('tertiary'), 10%);
+        }
+        .round-button__icon {
+            @include themify() {
+                &:before, &:after {
+                    background: themed('hightlight-color');
+                }
+            }
+            &:before, &:after {
+                content: "";
+                position: absolute;
+                height: 18px;
+                width: 2px;
+                border-radius: 2px;
+            }
+            &:before {
+                transform: rotate(45deg);
+            }
+            &:after {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}

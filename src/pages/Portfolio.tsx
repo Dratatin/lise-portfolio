@@ -32,6 +32,12 @@ const Portfolio: FC = () => {
         }
     }
 
+    // Do this to re-render all list of Project Card
+    let filtersName = "all";
+    filters.forEach(filter => {
+        filtersName = filtersName + '-' + filter;
+    });
+
     useEffect(() => {
         let filteredDatas = datas;
         filters.forEach((filter) => {
@@ -46,18 +52,20 @@ const Portfolio: FC = () => {
         <section className="portfolio">
             <div className="portfolio__tags" onChange={handleChange}>
                 {tags.map((elem, index) => (
-                    <Tag key={`t-${index}`} value={elem} name="tag" />
+                    <Tag key={index} value={elem} name="tag" />
                 ))}
             </div>
             <div className="portfolio__projects" ref={wrapperRef} style={imagesLoaded ? {} : { display: 'none' }}>
-                {projects.length > 0 ?
+                {projects.length > 0 &&
                     projects.map((elem, index) => (
-                        <Card key={`p-${index}`} title={elem.title} preview={elem.preview} subtitle={elem.subtitle} date={elem.date} tags={elem.tags} id={elem.id} />
+                        <Card key={`${elem.id}-${filtersName}`} index={index} title={elem.title} preview={elem.preview} subtitle={elem.subtitle} date={elem.date} tags={elem.tags} id={elem.id} />
                     ))
-                    :
-                    <p className="portfolio__projects__empty">Aucun projet ne correspond à votre recherche</p>
                 }
             </div>
+            {
+                projects.length === 0 && 
+                <p className="portfolio__empty">Aucun projet ne correspond à votre recherche</p>
+            }
         </section>
     )
 }

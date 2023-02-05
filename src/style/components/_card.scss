@@ -3,6 +3,10 @@
     flex-direction: column;
     gap: 0.5rem;
     flex: 1;
+    animation-name: appear;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
     &__link {
         border-radius: $border-radius;
         overflow: hidden;
@@ -63,3 +67,14 @@
         }
     }
 }
+
+@keyframes appear {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

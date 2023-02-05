@@ -50,6 +50,7 @@
         }
     }
     &__help {
+        text-align: center;
         @include themify() {
             color: themed('smooth-color');
         }
@@ -57,6 +58,9 @@
             font-style: italic;
             text-decoration: underline;
             cursor: pointer;
+            .now-wrap {
+                white-space: nowrap;
+            }
         }
     }
     &__drag-icon {
