@@ -1,4 +1,4 @@
-import { FC, Fragment } from "react";
+import { FC } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import datas from "../datas/projects.json";
 import NavigateBack from "../components/NavigateBack";
@@ -15,7 +15,7 @@ const Project: FC = () => {
     const otherProjects = datas.filter(({ id }) => id !== parseInt(params.id!));
 
     return (
-        <Fragment>
+        <>
             {project ?
                 <div className="project">
                     <div className="project__main">
@@ -28,7 +28,7 @@ const Project: FC = () => {
                 </div>
                 : <Navigate to="/*" />
             }
-        </Fragment>
+        </>
     )
 }
 

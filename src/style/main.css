@@ -1,4 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@-webkit-keyframes appear {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -19,11 +43,10 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
-#root {
+.app {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -32,6 +55,7 @@ a {
 
 body.remove-scroll {
   overflow-y: hidden;
+  position: relative;
 }
 
 body {
@@ -431,31 +455,6 @@ p {
   font-weight: bold;
 }
 
-@-webkit-keyframes appear {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(50px);
-            transform: translateY(50px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
-
-@keyframes appear {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(50px);
-            transform: translateY(50px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-}
 .tag__input:checked + .tag__label {
   outline: 0px;
   font-weight: 600;
@@ -593,6 +592,14 @@ p {
   width: 100%;
   display: block;
   border-radius: 0.7rem;
+  -webkit-animation-name: appear;
+          animation-name: appear;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
 }
 
 .slider {

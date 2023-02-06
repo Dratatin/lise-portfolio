@@ -28,6 +28,10 @@
             width: 100%;
             display: block;
             border-radius: $border-radius;
+            animation-name: appear;
+            animation-duration: 1s;
+            animation-fill-mode: both;
+            animation-timing-function: ease-in-out;
         }
     }
 }

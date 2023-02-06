@@ -17,12 +17,12 @@ a {
     -webkit-tap-highlight-color: transparent;
 }
 
-#root {
+.app {
     display: flex;
-    min-height: 100vh; /* Use vh as a fallback for browsers that do not support Custom Properties */
     flex-direction: column;
 }
 
 body.remove-scroll {
     overflow-y: hidden;
+    position: relative;
 }

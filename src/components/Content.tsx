@@ -1,4 +1,5 @@
-import { FC } from "react";
+import { FC, useRef } from "react";
+import { useOnLoadImages } from "../utils/useOnLoadImages";
 
 type Props = {
     project: {
@@ -11,6 +12,10 @@ type Props = {
 }
 
 const Content: FC<Props> = ({ project }) => {
+    const wrapperRef = useRef<HTMLDivElement>(null);
+
+    const imagesLoaded = useOnLoadImages(wrapperRef);
+
     return (
         <section className="content">
             <div className="content__head">
@@ -22,9 +27,9 @@ const Content: FC<Props> = ({ project }) => {
                 <p className="content__text__description">{project.subdescription}</p>
             </div>
             {project.images.length > 0 ?
-                <div className="content__images">
+                <div className="content__images" ref={wrapperRef} style={imagesLoaded ? {} : { display: 'none' }}>
                     {project.images.map((image, index) =>
-                        <img className="content__images__image" key={`i-${index}`} src={image}></img>
+                        <img className="content__images__image" key={`i-${index}`} src={image} style={{animationDelay: `${index * 0.5}s`}}></img>
                     )}
                 </div>
                 : null
