@@ -1,5 +1,5 @@
-import { FC, useState } from "react";
-import useTheme from "../utils/themeContext";
+import { FC } from "react"
+import useTheme from "../utils/themeContext"
 import { Link } from "react-router-dom"
 
 type Props = {
@@ -16,7 +16,7 @@ const Card: FC<Props> = ({ index, title, preview, subtitle, date, tags, id }) =>
     const { state } = useTheme();
 
     return (
-        <article className="card" style={{animationDelay: `${index * 0.5}s`}}>
+        <article className="card" style={{animationDelay: `${index * 0.4}s`}}>
             <Link to={`/portfolio/project/${id}`} className="card__link">
                 <img 
                     className="card__link__img" 

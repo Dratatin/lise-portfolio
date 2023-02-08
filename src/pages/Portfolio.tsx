@@ -2,6 +2,7 @@ import { ChangeEvent, FC, useEffect, useState, useRef } from "react";
 import datas from "../datas/projects.json";
 import Card from "../components/Card";
 import Tag from "../components/Tag";
+import Loader from "../components/Loader";
 import { useOnLoadImages } from "../utils/useOnLoadImages";
 
 const getTags = () => {
@@ -48,6 +49,7 @@ const Portfolio: FC = () => {
         setProjects(filteredDatas);
     }, [filters])
 
+
     return (
         <section className="portfolio">
             <div className="portfolio__tags" onChange={handleChange}>
@@ -55,15 +57,18 @@ const Portfolio: FC = () => {
                     <Tag key={index} value={elem} name="tag" />
                 ))}
             </div>
-            <div className="portfolio__projects" ref={wrapperRef} style={imagesLoaded ? {} : { display: 'none' }}>
-                {projects.length > 0 &&
-                    projects.map((elem, index) => (
-                        <Card key={`${elem.id}-${filtersName}`} index={index} title={elem.title} preview={elem.preview} subtitle={elem.subtitle} date={elem.date} tags={elem.tags} id={elem.id} />
-                    ))
-                }
-            </div>
-            {
-                projects.length === 0 && 
+            {projects.length > 0 ?
+                <>
+                    {!imagesLoaded && 
+                        <Loader className={`${imagesLoaded ? "hide" : "show"}`} />
+                    }
+                    <div className="portfolio__projects" ref={wrapperRef} style={imagesLoaded ? {} : { display: 'none' }}>
+                        {projects.map((elem, index) => (
+                            <Card key={`${elem.id}-${filtersName}`} index={index} title={elem.title} preview={elem.preview} subtitle={elem.subtitle} date={elem.date} tags={elem.tags} id={elem.id} />
+                        ))}
+                    </div>
+                </>
+                : 
                 <p className="portfolio__empty">Aucun projet ne correspond à votre recherche</p>
             }
         </section>

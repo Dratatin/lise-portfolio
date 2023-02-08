@@ -9,6 +9,7 @@ import Locked from "../assets/icons/locked.png"
 import Unlocked from "../assets/icons/unlocked.png"
 import IosIcon from "../components/IosIcon"
 import useDeviceType from "../utils/useDeviceType"
+import useWindowHeightSize from "../utils/useWindowHeightSize"
 
 
 const Welcome: FC = () => {
@@ -25,6 +26,7 @@ const Welcome: FC = () => {
         }
     });
     const deviceType = useDeviceType()
+    const windowHeightSize = useWindowHeightSize()
 
     let navigate = useNavigate();
     const handleClick = () => {
@@ -104,7 +106,7 @@ const Welcome: FC = () => {
     }, [])
 
     return (
-        <section className={`welcome theme--${state.theme}`}>
+        <section className={`welcome theme--${state.theme}`} style={deviceType === "ios" || "android" ? { height: windowHeightSize } : {height: "100vh"}}>
             <animated.div style={{x:starX, y:starY}} {...bindDragStar()} className={`welcome__drag-icon welcome__drag-icon--star ${dragging && "dragging"}`}>
                 <Star />
             </animated.div>

@@ -4,7 +4,7 @@
     gap: 0.5rem;
     flex: 1;
     animation-name: appear;
-    animation-duration: 1s;
+    animation-duration: 0.7s;
     animation-fill-mode: both;
     animation-timing-function: ease-in-out;
     &__link {
@@ -29,11 +29,11 @@
             right: 1.5rem;
             &__tag {
                 padding: 0.5rem;
-            @for $i from 1 through 3 {
-                &:nth-child(#{$i}) {
-                    z-index: 3 - $i;
+                @for $i from 1 through 3 {
+                    &:nth-child(#{$i}) {
+                        z-index: 3 - $i;
+                    }
                 }
-            }
                 @include themify() {
                     &:nth-child(2n+1) {
                         background-color: themed('tertiary');

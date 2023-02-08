@@ -1,5 +1,6 @@
 import { FC, useRef } from "react";
 import { useOnLoadImages } from "../utils/useOnLoadImages";
+import Loader from "./Loader";
 
 type Props = {
     project: {
@@ -26,13 +27,17 @@ const Content: FC<Props> = ({ project }) => {
                 <p className="content__text__description content__text__description--highlight">{project.description}</p>
                 <p className="content__text__description">{project.subdescription}</p>
             </div>
-            {project.images.length > 0 ?
-                <div className="content__images" ref={wrapperRef} style={imagesLoaded ? {} : { display: 'none' }}>
-                    {project.images.map((image, index) =>
-                        <img className="content__images__image" key={`i-${index}`} src={image} style={{animationDelay: `${index * 0.5}s`}}></img>
-                    )}
-                </div>
-                : null
+            {project.images.length > 0 &&
+                <>
+                    {!imagesLoaded && 
+                        <Loader className={`${imagesLoaded ? "hide" : "show"}`} />
+                    }
+                    <div className="content__images" ref={wrapperRef} style={imagesLoaded ? {} : { display: 'none' }}>
+                        {project.images.map((image, index) =>
+                            <img className="content__images__image" key={`i-${index}`} src={image} style={{animationDelay: `${index * 0.5}s`}}></img>
+                        )}
+                    </div>
+                </>
             }
         </section>
     )

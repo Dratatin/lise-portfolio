@@ -1,7 +1,7 @@
 .round-button {
-    width: 38px;
-    height: 38px;
-    border-radius: 38px;
+    width: 35px;
+    height: 35px;
+    border-radius: 35px;
     z-index: 1;
     cursor: pointer;
     @include themify() {
@@ -11,17 +11,20 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 2px;
+        gap: 3px;
         &__bullet {
             width: 5px;
             height: 5px;
             border-radius: 5px;
-            background-color: white;
+            @include themify() {
+                background-color: themed('primary');
+            }
         }
     }
     &--more {
         @include themify() {
             background: themed('secondary');
+            border: 3px solid themed('primary');
         }
     }
     &--close {

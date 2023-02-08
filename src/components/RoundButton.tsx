@@ -15,9 +15,9 @@ const RoundButton: FC<PropsRoundButton> = ({className, type, onClick}) => {
             <span className={`round-button__icon theme--${state.theme}`}>
                 {type === "more" && 
                     <>
-                        <span className="round-button__icon__bullet"></span>
-                        <span className="round-button__icon__bullet"></span>
-                        <span className="round-button__icon__bullet"></span>
+                        <span className={`round-button__icon__bullet theme--${state.theme}`}></span>
+                        <span className={`round-button__icon__bullet theme--${state.theme}`}></span>
+                        <span className={`round-button__icon__bullet theme--${state.theme}`}></span>
                     </>
                 }
                 </span>

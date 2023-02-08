@@ -13,6 +13,7 @@ input,
 textarea,
 button,
 select,
+label,
 a {
     -webkit-tap-highlight-color: transparent;
 }
@@ -23,6 +24,8 @@ a {
 }
 
 body.remove-scroll {
-    overflow-y: hidden;
-    position: relative;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
 }

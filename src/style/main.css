@@ -2,8 +2,8 @@
 @-webkit-keyframes appear {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(50px);
-            transform: translateY(50px);
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
   }
   100% {
     opacity: 1;
@@ -14,8 +14,8 @@
 @keyframes appear {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(50px);
-            transform: translateY(50px);
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
   }
   100% {
     opacity: 1;
@@ -39,6 +39,7 @@ input,
 textarea,
 button,
 select,
+label,
 a {
   -webkit-tap-highlight-color: transparent;
 }
@@ -54,8 +55,10 @@ a {
 }
 
 body.remove-scroll {
-  overflow-y: hidden;
-  position: relative;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  position: fixed;
 }
 
 body {
@@ -105,8 +108,8 @@ p {
 }
 .header__picture__button {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: -3px;
+  right: -3px;
 }
 
 .main {
@@ -173,6 +176,54 @@ p {
   border-top: 1px solid #3d3d3d;
 }
 
+.loader-container {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+}
+.loader-container .loader {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-animation: rotation 1s linear infinite;
+          animation: rotation 1s linear infinite;
+}
+
+@-webkit-keyframes rotation {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotation {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
 .shaded-background {
   background: rgba(0, 0, 0, 0.3);
   position: fixed;
@@ -334,8 +385,8 @@ p {
           flex: 1;
   -webkit-animation-name: appear;
           animation-name: appear;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
   -webkit-animation-fill-mode: both;
           animation-fill-mode: both;
   -webkit-animation-timing-function: ease-in-out;
@@ -889,9 +940,9 @@ p {
 }
 
 .round-button {
-  width: 38px;
-  height: 38px;
-  border-radius: 38px;
+  width: 35px;
+  height: 35px;
+  border-radius: 35px;
   z-index: 1;
   cursor: pointer;
 }
@@ -917,25 +968,40 @@ p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 2px;
+  gap: 3px;
 }
 .round-button__icon__bullet {
   width: 5px;
   height: 5px;
   border-radius: 5px;
-  background-color: white;
+}
+.round-button__icon__bullet.theme--primary {
+  background-color: #4D2EAA;
+}
+.round-button__icon__bullet.theme--secondary {
+  background-color: #14533D;
+}
+.round-button__icon__bullet.theme--tertiary {
+  background-color: #4D2EAA;
+}
+.round-button__icon__bullet.theme--quaternary {
+  background-color: #303030;
 }
 .round-button--more.theme--primary {
   background: #F4B940;
+  border: 3px solid #4D2EAA;
 }
 .round-button--more.theme--secondary {
   background: #4D9A7F;
+  border: 3px solid #14533D;
 }
 .round-button--more.theme--tertiary {
   background: #E0F3D1;
+  border: 3px solid #4D2EAA;
 }
 .round-button--more.theme--quaternary {
   background: #000;
+  border: 3px solid #303030;
 }
 .round-button--close.theme--primary {
   background: #f08b65;
@@ -996,7 +1062,6 @@ p {
           flex-direction: column;
   gap: 2rem;
   padding: 0.5rem 3rem 2rem 3rem;
-  overflow: hidden;
 }
 .portfolio__projects {
   display: grid;
@@ -1039,6 +1104,7 @@ p {
   padding: 0.5rem 3rem 2rem 3rem;
   position: relative;
   overflow: hidden;
+  height: 100vh;
 }
 .welcome.theme--primary {
   color: #fff;
